@@ -13,9 +13,9 @@ export default function Home() {
           <div className="space-y-8 text-center lg:text-left order-2 lg:order-1">
             {/* Main Heading */}
             <div className="space-y-4">
-              <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-black text-transparent bg-clip-text bg-gradient-to-r from-[#319eb9] via-[#40b5d0] to-[#5cc9e0] leading-none">
+              <span className="inline-block mb-4 text-3xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-black text-transparent bg-clip-text bg-gradient-to-r from-[#319eb9] via-[#40b5d0] to-[#5cc9e0] leading-none">
                 Boost Your Energy
-              </h1>
+              </span>
               <div className="w-24 h-1 bg-gradient-to-r from-[#319eb9] to-[#40b5d0] mx-auto lg:mx-0 rounded-full"></div>
             </div>
             
@@ -26,7 +26,7 @@ export default function Home() {
             </p>
             
             {/* Features */}
-            <div className="flex flex-wrap justify-center lg:justify-start gap-4 text-sm">
+            {/* <div className="flex flex-wrap justify-center lg:justify-start gap-4 text-sm">
               <span className="px-4 py-2 bg-[#319eb9]/20 text-[#f2f2f2] rounded-full border border-[#319eb9]/30 backdrop-blur-sm">
                 ⚡ Zero Crash
               </span>
@@ -36,7 +36,7 @@ export default function Home() {
               <span className="px-4 py-2 bg-[#319eb9]/20 text-[#f2f2f2] rounded-full border border-[#319eb9]/30 backdrop-blur-sm">
                 🚀 8hr Energy
               </span>
-            </div>
+            </div> */}
             
             {/* CTA Buttons */}
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
