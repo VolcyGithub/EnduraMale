@@ -15,6 +15,7 @@
   --color-primary: var(--primary);
   --color-secondary: var(--secondary);
   --color-third: var(--third);
+  --breakpoint-custom-break:1100px;
 }
 /* 
 
@@ -40,3 +41,17 @@ background-size: cover;
 .overlay{
   @apply bg-black/50 absolute w-full h-full;
 }
+
+.main-btn{
+  @apply flex items-center text-white gap-2 hover:ring-1 py-2 px-4 bg-secondary rounded-3xl font-bold text-lg;
+}
+.secondary-btn{
+  @apply flex items-center text-secondary gap-2 hover:ring-1 py-2 px-4 bg-white rounded-3xl font-bold text-lg;
+}
+.product-card{
+  @apply ring-gray-400 ring-1 text-white p-5 rounded-xl text-center flex flex-col items-center;
+}
+
+.swiper{
+  padding: 1 !important;
+} 

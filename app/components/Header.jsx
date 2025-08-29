@@ -16,7 +16,7 @@ export default function Header() {
         </ul>
 
         <div className="items-center w-full justify-center hidden lg:flex">
-          <a className="flex items-center text-white gap-2 hover:ring-1 py-2 px-4 bg-secondary rounded-3xl font-bold text-lg">
+          <a className="main-btn">
             Buy Now <FaArrowCircleRight></FaArrowCircleRight>
           </a>
         </div>
