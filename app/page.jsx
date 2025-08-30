@@ -65,7 +65,7 @@ export default function Home() {
       {/* ABOUT SECTION */}
 
       <div className="bg-third xl:h-[700px] py-10 px-10 min-[1200px]:px-20 xl:px-40 grid md:grid-cols-2">
-        <img src="/product.png" className="m-auto w-[270px]" alt="" />
+        <img src="/product.png" className="m-auto md:w-[270px]" alt="" />
 
         <div className="py-10">
           <p className="text-lg font-bold py-2 text-secondary uppercase">
@@ -308,6 +308,11 @@ export default function Home() {
           <Swiper
           autoplay={{
             delay:2000
+          }}
+          breakpoints={{
+            600:{slidesPerView:1},
+            768: { slidesPerView: 2, spaceBetween: 30 },
+            1024: { slidesPerView: 3, spaceBetween: 40 },
           }}
           loop={true}
           modules={[Autoplay]}

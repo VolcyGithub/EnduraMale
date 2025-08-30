@@ -48,7 +48,7 @@ export default function FAQ() {
               <span>{faq.question}</span>
               <FaChevronDown
                 className={`text-gray-500 transition-transform duration-300 ${
-                  openIndex === index ? "rotate-180 text-indigo-500" : ""
+                  openIndex === index ? "rotate-180 text-secondary" : ""
                 }`}
               />
             </button>
