@@ -17,7 +17,6 @@ import "swiper/css/pagination";
 import FAQ from "./components/Faqs";
 import Testimonial from "./components/Testimonial";
 export default function Home() {
-
   return (
     <div>
       <div className="banner h-screen bg-primary">
@@ -65,7 +64,7 @@ export default function Home() {
       {/* ABOUT SECTION */}
 
       <div className="bg-third xl:h-[700px] py-10 px-10 min-[1200px]:px-20 xl:px-40 grid md:grid-cols-2">
-        <img src="/product.png" className="m-auto md:w-[270px]" alt="" />
+        <img src="/prostate.png" className="m-auto md:w-[270px]" alt="" />
 
         <div className="py-10">
           <p className="text-lg font-bold py-2 text-secondary uppercase">
@@ -174,7 +173,7 @@ export default function Home() {
           </div>
         </div>
         <div className="relative w-full flex justify-center md:-top-30">
-          <img src="/product-and-cover.png" className="w-[450px]" alt="" />
+          <img src="/multivitamin.png" className="w-[250px]" alt="" />
         </div>
         <div className="grid md:grid-cols-7 justify-between pt-20 custom-break:px-20 relative md:-top-70">
           <div className="col-span-2">
@@ -229,10 +228,8 @@ export default function Home() {
         </div>
         <div className="relative">
           <Swiper
-            modules={[Navigation,Autoplay]}
-            autoplay={
-              {delay:3000}
-            }
+            modules={[Navigation, Autoplay]}
+            autoplay={{ delay: 3000 }}
             spaceBetween={20}
             loop={true}
             pagination={{ clickable: true }}
@@ -248,8 +245,8 @@ export default function Home() {
                 <SwiperSlide key={i}>
                   <div className="product-card">
                     <img
-                      src="https://html.awaikenthemes.com/sellsmart/health-supplements/images/product-image-2.jpg"
-                      className="rounded-xl"
+                      src="/multivitamin.png"
+                      className="rounded-xl w-[250px]"
                       alt="Vital Boost"
                     />
                     <p className="text-secondary capitalize py-2 font-medium">
@@ -271,16 +268,12 @@ export default function Home() {
           </Swiper>
 
           {/* Custom Prev Button */}
-          <button
-            className="absolute left-0 top-1/2 -translate-y-1/2 bg-black/50 text-white p-3 rounded-r-lg z-10"
-          >
+          <button className="absolute left-0 top-1/2 -translate-y-1/2 bg-black/50 text-white p-3 rounded-r-lg z-10">
             <FaChevronLeft />
           </button>
 
           {/* Custom Next Button */}
-          <button
-            className="absolute right-0 top-1/2 -translate-y-1/2 bg-black/50 text-white p-3 rounded-l-lg z-10"
-          >
+          <button className="absolute right-0 top-1/2 -translate-y-1/2 bg-black/50 text-white p-3 rounded-l-lg z-10">
             <FaChevronRight />
           </button>
         </div>
@@ -306,28 +299,28 @@ export default function Home() {
 
         <div className="relative">
           <Swiper
-          autoplay={{
-            delay:2000
-          }}
-          breakpoints={{
-            600:{slidesPerView:1},
-            768: { slidesPerView: 2, spaceBetween: 30 },
-            1024: { slidesPerView: 3, spaceBetween: 40 },
-          }}
-          loop={true}
-          modules={[Autoplay]}
+            autoplay={{
+              delay: 2000,
+            }}
+            breakpoints={{
+              600: { slidesPerView: 1 },
+              768: { slidesPerView: 2, spaceBetween: 30 },
+              1024: { slidesPerView: 3, spaceBetween: 40 },
+            }}
+            loop={true}
+            modules={[Autoplay]}
           >
             <SwiperSlide>
-              <Testimonial/>
+              <Testimonial />
             </SwiperSlide>
             <SwiperSlide>
-              <Testimonial/>
+              <Testimonial />
             </SwiperSlide>
             <SwiperSlide>
-              <Testimonial/>
+              <Testimonial />
             </SwiperSlide>
             <SwiperSlide>
-              <Testimonial/>
+              <Testimonial />
             </SwiperSlide>
           </Swiper>
         </div>
@@ -355,7 +348,7 @@ export default function Home() {
 
         <div className="grid md:grid-cols-2">
           <FAQ />
-          <img src="/product-and-cover.png" alt="" className="mx-auto" />
+          <img src="/horny-goat.png" alt="" className="mx-auto w-[250px]" />
         </div>
       </div>
       {/*  */}
