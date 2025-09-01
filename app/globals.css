@@ -17,6 +17,10 @@
   --color-third: var(--third);
   --breakpoint-custom-break:1100px;
 }
+.custom-radius {
+  border-radius: 69% 25% 50% 28% / 58% 25% 65% 25%;
+  @apply bg-secondary w-[1200px] h-[1200px] absolute top-0 left-0 ; 
+}
 /* 
 
 

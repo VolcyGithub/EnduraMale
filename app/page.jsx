@@ -19,7 +19,7 @@ import Testimonial from "./components/Testimonial";
 export default function Home() {
   return (
     <div>
-      <div className="banner h-screen bg-primary">
+      <div className=" h-screen bg-primary overflow-hidden relative">
         <div className="overlay z-[2]">
           <div className="grid md:grid-cols-2 items-center h-full py-40 px-10 xl:px-40">
             <div>
@@ -39,11 +39,15 @@ export default function Home() {
                 </p>
               </div>
             </div>
-            <img
-              src="/file.png"
-              className="sm:w-[450px] sm:h-[450px] xl:w-[600px] xl:h-[600px] object-cover"
+            <div className="relative">
+              <div className="custom-radius z-[1]"></div>
+              <img
+              src="/featured.png"
+              className="w-[500px] h-[500px] sm:w-[550px] relative z-[2] sm:h-[550px] xl:w-[640px] xl:h-[640px] object-cover"
               alt=""
             />
+            </div>
+            
           </div>
         </div>
         <Marquee
@@ -63,7 +67,7 @@ export default function Home() {
       </div>
       {/* ABOUT SECTION */}
 
-      <div className="bg-third xl:h-[700px] py-10 px-10 min-[1200px]:px-20 xl:px-40 grid md:grid-cols-2">
+      <div className="bg-third xl:h-[700px] py-10 px-10 min-[1200px]:px-20 xl:px-40 grid md:grid-cols-2 relative z-[2]">
         <img src="/prostate.png" className="m-auto md:w-[270px]" alt="" />
 
         <div className="py-10">
