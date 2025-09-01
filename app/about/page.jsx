@@ -1,38 +1,229 @@
-'use client';
+import { FaAward, FaUsers, FaFlask, FaHeart, FaShieldAlt, FaLeaf, FaCheckCircle, FaStar } from "react-icons/fa";
 
-export default function About(){
-    return (
-        <div className="min-h-screen py-12 px-4 sm:px-6 lg:px-8">
-            <div className="max-w-4xl mx-auto">
-                <h1 className="text-4xl font-bold text-center mb-8">About Us</h1>
-                
-                <div className="space-y-6">
-                    <section>
-                        <h2 className="text-2xl font-semibold mb-4">Our Story</h2>
-                        <p className="text-gray-600">
-                            Welcome to our company. We are dedicated to providing exceptional 
-                            products and services to our valued customers.
-                        </p>
-                    </section>
+export default function AboutPage() {
+  const stats = [
+    { number: "50K+", label: "Happy Customers", icon: FaUsers },
+    { number: "15+", label: "Years Experience", icon: FaAward },
+    { number: "100+", label: "Products Tested", icon: FaFlask },
+    { number: "98%", label: "Customer Satisfaction", icon: FaStar }
+  ];
 
-                    <section>
-                        <h2 className="text-2xl font-semibold mb-4">Our Mission</h2>
-                        <p className="text-gray-600">
-                            Our mission is to deliver innovative solutions while maintaining 
-                            the highest standards of quality and customer satisfaction.
-                        </p>
-                    </section>
+  const values = [
+    {
+      icon: FaHeart,
+      title: "Health First",
+      description: "We prioritize your health and wellness above all else, ensuring every product meets the highest quality standards."
+    },
+    {
+      icon: FaShieldAlt,
+      title: "Safety & Purity",
+      description: "All our supplements are rigorously tested for purity, potency, and safety by third-party laboratories."
+    },
+    {
+      icon: FaLeaf,
+      title: "Natural Ingredients",
+      description: "We source premium, natural ingredients from trusted suppliers around the world to create effective formulations."
+    },
+    {
+      icon: FaCheckCircle,
+      title: "Proven Results",
+      description: "Our products are backed by scientific research and thousands of positive customer testimonials."
+    }
+  ];
 
-                    <section>
-                        <h2 className="text-2xl font-semibold mb-4">Contact Information</h2>
-                        <div className="text-gray-600">
-                            <p>Email: info@example.com</p>
-                            <p>Phone: (123) 456-7890</p>
-                            <p>Address: 123 Business Street, City, Country</p>
-                        </div>
-                    </section>
-                </div>
-            </div>
+  const team = [
+    {
+      name: "Dr. Sarah Johnson",
+      role: "Chief Scientific Officer",
+      bio: "PhD in Nutritional Science with 20+ years in supplement research and development.",
+      image: "/api/placeholder/300/400"
+    },
+    {
+      name: "Michael Chen",
+      role: "Founder & CEO",
+      bio: "Former athlete turned entrepreneur, passionate about helping others achieve peak performance.",
+      image: "/api/placeholder/300/400"
+    },
+    {
+      name: "Lisa Rodriguez",
+      role: "Head of Quality Assurance",
+      bio: "15+ years ensuring supplement quality and safety standards across the industry.",
+      image: "/api/placeholder/300/400"
+    }
+  ];
+
+  return (
+    <div className="bg-third text-primary">
+      {/* Hero Section */}
+      <section className="bg-secondary text-third py-20">
+        <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
+          <div className="text-center">
+            <h1 className="text-5xl md:text-6xl font-bold mb-6">
+              About <span className="text-third/90">Enduramale</span>
+            </h1>
+            <p className="text-xl md:text-2xl text-third/90 max-w-3xl mx-auto leading-relaxed">
+              Dedicated to empowering your health journey with premium supplements and unwavering commitment to excellence.
+            </p>
+          </div>
         </div>
-    );
-};
+      </section>
+
+      {/* Stats Section */}
+      <section className="py-16 bg-primary">
+        <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
+            {stats.map((stat, index) => {
+              const Icon = stat.icon;
+              return (
+                <div key={index} className="text-center group">
+                  <div className="inline-flex items-center justify-center w-16 h-16 bg-secondary rounded-full mb-4 group-hover:scale-110 transition-transform duration-300">
+                    <Icon className="w-8 h-8 text-third" />
+                  </div>
+                  <div className="text-4xl font-bold text-third mb-2">{stat.number}</div>
+                  <div className="text-third/80 text-lg">{stat.label}</div>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      {/* Story Section */}
+      <section className="py-20">
+        <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
+          <div className="grid lg:grid-cols-2 gap-16 items-center">
+            <div>
+              <h2 className="text-4xl font-bold text-primary mb-8">
+                Our Story
+                <div className="w-16 h-1 bg-secondary mt-4"></div>
+              </h2>
+              <div className="space-y-6 text-lg text-primary/80 leading-relaxed">
+                <p>
+                  Founded in 2009, Enduramale began with a simple mission: to provide men with the highest quality supplements to support their health, vitality, and performance goals. What started as a small operation has grown into a trusted name in the wellness industry.
+                </p>
+                <p>
+                  Our journey started when our founder, Michael Chen, struggled to find reliable, effective supplements during his athletic career. Frustrated by inconsistent quality and misleading claims, he set out to create a company that would prioritize transparency, science, and results.
+                </p>
+                <p>
+                  Today, we continue to innovate and improve, always putting our customers' health and satisfaction first. Every product we create undergoes rigorous testing and is backed by scientific research to ensure you get the results you deserve.
+                </p>
+              </div>
+            </div>
+            <div className="relative">
+              <div className="bg-secondary rounded-2xl p-8 shadow-2xl">
+                <img 
+                  src="/api/placeholder/600/400" 
+                  alt="Our facility" 
+                  className="w-full h-80 object-cover rounded-lg"
+                />
+                <div className="absolute -bottom-4 -left-4 bg-primary text-third p-6 rounded-lg shadow-xl">
+                  <div className="text-2xl font-bold">2009</div>
+                  <div className="text-sm">Founded</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Values Section */}
+      <section className="py-20 bg-secondary/5">
+        <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-bold text-primary mb-6">
+              Our Values
+              <div className="w-16 h-1 bg-secondary mx-auto mt-4"></div>
+            </h2>
+            <p className="text-xl text-primary/80 max-w-3xl mx-auto">
+              These core principles guide everything we do, from product development to customer service.
+            </p>
+          </div>
+          
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {values.map((value, index) => {
+              const Icon = value.icon;
+              return (
+                <div key={index} className="bg-third rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
+                  <div className="bg-secondary rounded-full w-16 h-16 flex items-center justify-center mb-6">
+                    <Icon className="w-8 h-8 text-third" />
+                  </div>
+                  <h3 className="text-xl font-bold text-primary mb-4">{value.title}</h3>
+                  <p className="text-primary/80 leading-relaxed">{value.description}</p>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      {/* Team Section */}
+      <section className="py-20">
+        <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-bold text-primary mb-6">
+              Meet Our Team
+              <div className="w-16 h-1 bg-secondary mx-auto mt-4"></div>
+            </h2>
+            <p className="text-xl text-primary/80 max-w-3xl mx-auto">
+              The passionate experts behind our commitment to excellence and innovation.
+            </p>
+          </div>
+          
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {team.map((member, index) => (
+              <div key={index} className="group">
+                <div className="bg-third rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
+                  <div className="aspect-w-3 aspect-h-4 bg-secondary/10">
+                    <img 
+                      src={member.image} 
+                      alt={member.name}
+                      className="w-full h-80 object-cover"
+                    />
+                  </div>
+                  <div className="p-8">
+                    <h3 className="text-xl font-bold text-primary mb-2">{member.name}</h3>
+                    <div className="text-secondary font-semibold mb-4">{member.role}</div>
+                    <p className="text-primary/80 leading-relaxed">{member.bio}</p>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Mission Section */}
+      <section className="py-20 bg-secondary text-third">
+        <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
+          <div className="text-center">
+            <h2 className="text-4xl font-bold mb-8">
+              Our Mission
+              <div className="w-16 h-1 bg-third mx-auto mt-4"></div>
+            </h2>
+            <p className="text-2xl text-third/90 max-w-4xl mx-auto leading-relaxed">
+              To empower men worldwide with scientifically-backed supplements that enhance health, boost performance, and improve quality of life, while maintaining the highest standards of quality, transparency, and customer care.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="py-20">
+        <div className="max-w-4xl mx-auto px-6 sm:px-8 lg:px-12 text-center">
+          <h2 className="text-4xl font-bold text-primary mb-8">Ready to Transform Your Health?</h2>
+          <p className="text-xl text-primary/80 mb-10">
+            Join thousands of satisfied customers who trust Enduramale for their wellness journey.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-6 justify-center">
+            <button className="bg-secondary hover:bg-secondary/90 text-third px-8 py-4 rounded-lg text-lg font-semibold transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl">
+              Shop Products
+            </button>
+            <button className="bg-primary hover:bg-primary/80 text-third px-8 py-4 rounded-lg text-lg font-semibold transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl border border-secondary">
+              Contact Us
+            </button>
+          </div>
+        </div>
+      </section>
+    </div>
+  );
+}
