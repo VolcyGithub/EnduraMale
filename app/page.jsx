@@ -1,109 +1,359 @@
+"use client";
 import Image from "next/image";
-
+import {
+  FaCheckCircle,
+  FaArrowCircleRight,
+  FaStar,
+  FaChevronLeft,
+  FaChevronRight,
+} from "react-icons/fa";
+import { useRef } from "react";
+import Marquee from "react-fast-marquee";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Navigation, Autoplay } from "swiper/modules";
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
+import FAQ from "./components/Faqs";
+import Testimonial from "./components/Testimonial";
 export default function Home() {
+
   return (
-    <div className="min-h-screen bg-gradient-to-br from-[#1a1a1a] via-[#1a1a1a] to-[#2a2a2a] w-full overflow-hidden relative">
-      {/* Background decorative elements */}
-      <div className="absolute inset-0 opacity-30"></div>
-      
-      <div className="relative z-10 px-6 lg:px-10 py-8">
-        <div className="grid grid-cols-1 lg:grid-cols-2 min-h-screen items-center gap-8 lg:gap-16 max-w-7xl mx-auto">
-          
-          {/* Left Content Section */}
-          <div className="space-y-8 text-center lg:text-left order-2 lg:order-1">
-            {/* Main Heading */}
-            <div className="space-y-4">
-              <span className="inline-block mb-4 text-3xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-black text-transparent bg-clip-text bg-gradient-to-r from-[#319eb9] via-[#40b5d0] to-[#5cc9e0] leading-none">
-                Boost Your Energy
-              </span>
-              <div className="w-24 h-1 bg-gradient-to-r from-[#319eb9] to-[#40b5d0] mx-auto lg:mx-0 rounded-full"></div>
-            </div>
-            
-            {/* Subtitle */}
-            <p className="text-xl md:text-2xl text-[#f2f2f2] max-w-lg mx-auto lg:mx-0 leading-relaxed">
-              Unleash your potential with our premium energy formula. 
-              <span className="text-[#319eb9] font-semibold"> Natural. Powerful. Sustained.</span>
-            </p>
-            
-            {/* Features */}
-            {/* <div className="flex flex-wrap justify-center lg:justify-start gap-4 text-sm">
-              <span className="px-4 py-2 bg-[#319eb9]/20 text-[#f2f2f2] rounded-full border border-[#319eb9]/30 backdrop-blur-sm">
-                ⚡ Zero Crash
-              </span>
-              <span className="px-4 py-2 bg-[#319eb9]/20 text-[#f2f2f2] rounded-full border border-[#319eb9]/30 backdrop-blur-sm">
-                🌿 Natural Ingredients
-              </span>
-              <span className="px-4 py-2 bg-[#319eb9]/20 text-[#f2f2f2] rounded-full border border-[#319eb9]/30 backdrop-blur-sm">
-                🚀 8hr Energy
-              </span>
-            </div> */}
-            
-            {/* CTA Buttons */}
-            <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-              <button className="group relative px-8 py-4 bg-gradient-to-r from-[#319eb9] to-[#40b5d0] text-[#f2f2f2] font-bold rounded-xl text-lg transition-all duration-300 hover:from-[#40b5d0] hover:to-[#319eb9] hover:scale-105 hover:shadow-2xl hover:shadow-[#319eb9]/25">
-                <span className="relative z-10">Get Energized Now</span>
-                <div className="absolute inset-0 bg-white/20 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-              </button>
-              <button className="px-8 py-4 border-2 border-[#319eb9] text-[#319eb9] font-semibold rounded-xl text-lg transition-all duration-300 hover:bg-[#319eb9] hover:text-[#f2f2f2] hover:scale-105">
-                Learn More
-              </button>
-            </div>
-            
-            {/* Social Proof */}
-            <div className="flex items-center justify-center lg:justify-start space-x-6 text-[#f2f2f2]">
-              <div className="text-center">
-                <div className="text-2xl font-bold text-[#319eb9]">50K+</div>
-                <div className="text-xs">Happy Customers</div>
-              </div>
-              <div className="w-px h-12 bg-[#319eb9]/50"></div>
-              <div className="text-center">
-                <div className="text-2xl font-bold text-[#319eb9]">4.9★</div>
-                <div className="text-xs">Average Rating</div>
-              </div>
-              <div className="w-px h-12 bg-[#319eb9]/50"></div>
-              <div className="text-center">
-                <div className="text-2xl font-bold text-[#319eb9]">100%</div>
-                <div className="text-xs">Natural Formula</div>
+    <div>
+      <div className="banner h-screen bg-primary">
+        <div className="overlay z-[2]">
+          <div className="grid md:grid-cols-2 items-center h-full py-40 px-10 xl:px-40">
+            <div>
+              {" "}
+              <p className="text-white text-3xl py-5">Welcome</p>
+              <p className="text-7xl xl:text-8xl text-white font-bold">
+                NATURAL <span className="text-secondary">SUPPLEMENT</span>
+              </p>
+              <div className="pt-4 space-y-3">
+                <p className="text-white text-lg flex items-center gap-2">
+                  <FaCheckCircle className="text-secondary" /> Natural
+                  supplements crafted to help you thrive.
+                </p>
+                <p className="text-white text-lg flex items-center gap-2">
+                  <FaCheckCircle className="text-secondary" /> Natural
+                  supplements crafted to help you thrive.
+                </p>
               </div>
             </div>
-          </div>
-          
-          {/* Right Image Section */}
-          <div className="flex items-center justify-center relative order-1 lg:order-2">
-            {/* Glowing background effect */}
-            <div className="absolute inset-0 bg-gradient-to-r from-[#319eb9]/20 via-[#40b5d0]/20 to-[#5cc9e0]/20 rounded-full blur-3xl scale-75 animate-pulse"></div>
-            
-            {/* Product image container */}
-            <div className="relative group">
-              <div className="absolute -inset-4 bg-gradient-to-r from-[#319eb9] via-[#40b5d0] to-[#5cc9e0] rounded-full opacity-30 blur-lg group-hover:opacity-50 transition-opacity duration-500"></div>
-              <div className="relative transform group-hover:scale-105 transition-transform duration-500 ease-out">
-                <Image 
-                  src="/product.png" 
-                  width={600} 
-                  height={600}
-                  alt="Premium energy boost supplement bottle with natural ingredients"
-                  className="drop-shadow-2xl"
-                  priority
-                />
-              </div>
-              
-              {/* Floating elements */}
-              <div className="absolute -top-4 -right-4 w-16 h-16 bg-[#319eb9]/20 rounded-full animate-bounce delay-100"></div>
-              <div className="absolute -bottom-8 -left-8 w-12 h-12 bg-[#319eb9]/30 rounded-full animate-bounce delay-300"></div>
-              <div className="absolute top-1/2 -left-12 w-8 h-8 bg-[#319eb9]/20 rounded-full animate-bounce delay-500"></div>
-            </div>
+            <img
+              src="/file.png"
+              className="sm:w-[450px] sm:h-[450px] xl:w-[600px] xl:h-[600px] object-cover"
+              alt=""
+            />
           </div>
         </div>
-        
-        {/* Bottom indicator */}
-        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2">
-          <div className="flex space-x-2">
-            <div className="w-2 h-2 bg-[#319eb9] rounded-full animate-bounce"></div>
-            <div className="w-2 h-2 bg-[#319eb9]/70 rounded-full animate-bounce delay-100"></div>
-            <div className="w-2 h-2 bg-[#319eb9]/50 rounded-full animate-bounce delay-200"></div>
+        <Marquee
+          speed={150}
+          className="absolute h-[90px] bg-secondary text-white uppercase z-[2] top-[90.5%] text-4xl font-bold"
+        >
+          <span>
+            Free Delivery * 100% Secure Payment * 30 Days free Returns *&nbsp;{" "}
+          </span>
+          <span>
+            Free Delivery * 100% Secure Payment * 30 Days free Returns *&nbsp;{" "}
+          </span>
+          <span>
+            Free Delivery * 100% Secure Payment * 30 Days free Returns *&nbsp;{" "}
+          </span>
+        </Marquee>
+      </div>
+      {/* ABOUT SECTION */}
+
+      <div className="bg-third xl:h-[700px] py-10 px-10 min-[1200px]:px-20 xl:px-40 grid md:grid-cols-2">
+        <img src="/product.png" className="m-auto w-[270px]" alt="" />
+
+        <div className="py-10">
+          <p className="text-lg font-bold py-2 text-secondary uppercase">
+            | About Us
+          </p>
+          <h2 className="text-5xl font-bold text-primary uppercase leading-[1.2em]">
+            Committed to your
+            <span className="text-secondary"> health and wellness!</span>
+          </h2>
+          <p className="py-4 font-medium text-gray-500 text-lg">
+            We are dedicated to preserving the planet's natural beauty while
+            practices ensure a thriving future for generations to come.
+          </p>
+          <div className="grid custom-break:grid-cols-2 py-5 items-center">
+            <div className="space-y-3  font-medium text-lg text-gray-500">
+              <p className="flex items-center gap-2">
+                {" "}
+                <FaCheckCircle className="text-secondary" />
+                Pure & Natural Ingredients
+              </p>
+              <p className="flex items-center gap-2">
+                {" "}
+                <FaCheckCircle className="text-secondary" />
+                Pure & Natural Ingredients
+              </p>
+            </div>
+            <div className="pt-2">
+              <div className="bg-white p-4 rounded-lg flex text-xl font-bold gap-3 text-secondary pr-40 custom-break:pr-0">
+                <img
+                  src="/icon-about-body.svg"
+                  className="bg-secondary p-4 rounded-[50%] "
+                  alt=""
+                />
+                100% Natural Ingredients
+              </div>
+            </div>
+          </div>
+
+          <div className="flex flex-row custom-break:pt-20 gap-4 custom-break:gap-20">
+            <p>
+              <button className="main-btn ">
+                More About us <FaArrowCircleRight />
+              </button>
+            </p>
+            <p className="flex font-medium gap-2 text-primary">
+              <img
+                src="/icon-phone.svg"
+                alt=""
+                className="bg-secondary p-3 rounded-[50%]"
+              />
+              Support Any Time <br />
+              +01 - 985 852 357
+            </p>
           </div>
         </div>
       </div>
+
+      {/* Emphazis Section */}
+
+      <div className="bg-secondary/20 h-[min-content] md:h-[1300px] custom-break:h-[1100px] w-full px-10 custom-break:px-40 py-20">
+        <p className="text-lg font-bold text-secondary uppercase pb-4">
+          | Why Choose Us
+        </p>
+        <div className="grid sm:grid-cols-2">
+          <h2 className="text-5xl text-primary font-bold uppercase">
+            Why we're your best
+            <span className="text-secondary"> health choice!</span>
+          </h2>
+          <p className="text-gray-500 text-lg py-2 md:py-0">
+            We prioritize quality, using only natural, science - ingredients to
+            create effective supplements that support your health, energy, and
+            overall well-being.
+          </p>
+        </div>
+
+        {/*  */}
+        <div className="grid md:grid-cols-7 justify-between pt-20 custom-break:px-20">
+          <div className="col-span-2">
+            <div className="bg-white p-3 mx-auto rounded-[50%] w-[150px] h-[150px] flex items-center justify-center">
+              <img src="/icon-why-choose-1.png" className="w-[100px]" alt="" />
+            </div>
+            <div className="py-4 text-center">
+              <h2 className="text-xl font-semibold text-secondary mb-3">
+                Natural Ingredients
+              </h2>
+              <p className="text-gray-600 text-lg">
+                Our supplements are made with , natural ingredients, carefully
+                for quality, effectiveness.
+              </p>
+            </div>
+          </div>
+          <div className="col-span-3"></div>
+          <div className="col-span-2">
+            <div className="bg-white p-3 mx-auto rounded-[50%] w-[150px] h-[150px] flex items-center justify-center">
+              <img src="/icon-why-choose-1.png" className="w-[100px]" alt="" />
+            </div>
+            <div className="py-4 text-center">
+              <h2 className="text-xl font-semibold text-secondary mb-3">
+                Natural Ingredients
+              </h2>
+              <p className="text-gray-600 text-lg">
+                Our supplements are made with , natural ingredients, carefully
+                for quality, effectiveness.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div className="relative w-full flex justify-center md:-top-30">
+          <img src="/product-and-cover.png" className="w-[450px]" alt="" />
+        </div>
+        <div className="grid md:grid-cols-7 justify-between pt-20 custom-break:px-20 relative md:-top-70">
+          <div className="col-span-2">
+            <div className="bg-white p-3 mx-auto rounded-[50%] w-[150px] h-[150px] flex items-center justify-center">
+              <img src="/icon-why-choose-1.png" className="w-[100px]" alt="" />
+            </div>
+            <div className="py-4 text-center">
+              <h2 className="text-xl font-semibold text-secondary mb-3">
+                Natural Ingredients
+              </h2>
+              <p className="text-gray-600 text-lg">
+                Our supplements are made with , natural ingredients, carefully
+                for quality, effectiveness.
+              </p>
+            </div>
+          </div>
+          <div className="col-span-3"></div>
+          <div className="col-span-2">
+            <div className="bg-white p-3 mx-auto rounded-[50%] w-[150px] h-[150px] flex items-center justify-center">
+              <img src="/icon-why-choose-1.png" className="w-[100px]" alt="" />
+            </div>
+            <div className="py-4 text-center">
+              <h2 className="text-xl font-semibold text-secondary mb-3">
+                Natural Ingredients
+              </h2>
+              <p className="text-gray-600 text-lg">
+                Our supplements are made with , natural ingredients, carefully
+                for quality, effectiveness.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Products Section */}
+      <div className="bg-third h-[min-content] py-10 px-10  md:px-40">
+        <p className="text-lg font-bold text-secondary uppercase pb-4">
+          | Our Products
+        </p>
+        <div className="grid md:grid-cols-2 pb-10">
+          <h2 className="text-5xl text-primary font-bold uppercase">
+            Powerful supplements
+            <span className="text-secondary"> for a healthier you!</span>
+          </h2>
+          <div className="flex justify-end py-2">
+            <p>
+              <button className="main-btn ">
+                More Products <FaArrowCircleRight />
+              </button>
+            </p>
+          </div>
+        </div>
+        <div className="relative">
+          <Swiper
+            modules={[Navigation,Autoplay]}
+            autoplay={
+              {delay:3000}
+            }
+            spaceBetween={20}
+            loop={true}
+            pagination={{ clickable: true }}
+            breakpoints={{
+              768: { slidesPerView: 2, spaceBetween: 30 },
+              1024: { slidesPerView: 3, spaceBetween: 40 },
+            }}
+            className="mySwiper p-3"
+          >
+            {Array(5)
+              .fill(0)
+              .map((_, i) => (
+                <SwiperSlide key={i}>
+                  <div className="product-card">
+                    <img
+                      src="https://html.awaikenthemes.com/sellsmart/health-supplements/images/product-image-2.jpg"
+                      className="rounded-xl"
+                      alt="Vital Boost"
+                    />
+                    <p className="text-secondary capitalize py-2 font-medium">
+                      Vital Boost
+                    </p>
+                    <div className="flex justify-between w-full">
+                      <span className="flex items-center gap-1">
+                        {Array(5)
+                          .fill(0)
+                          .map((_, index) => (
+                            <FaStar key={index} className="text-secondary" />
+                          ))}
+                      </span>
+                      <span className="text-primary text-lg">$80</span>
+                    </div>
+                  </div>
+                </SwiperSlide>
+              ))}
+          </Swiper>
+
+          {/* Custom Prev Button */}
+          <button
+            className="absolute left-0 top-1/2 -translate-y-1/2 bg-black/50 text-white p-3 rounded-r-lg z-10"
+          >
+            <FaChevronLeft />
+          </button>
+
+          {/* Custom Next Button */}
+          <button
+            className="absolute right-0 top-1/2 -translate-y-1/2 bg-black/50 text-white p-3 rounded-l-lg z-10"
+          >
+            <FaChevronRight />
+          </button>
+        </div>
+      </div>
+      {/*  */}
+      <div className="bg-secondary px-10 md:px-40 py-20">
+        <p className="text-lg font-bold text-third uppercase pb-4">
+          | Testimonials
+        </p>
+        <div className="grid md:grid-cols-2 pb-10 ">
+          <h2 className="text-5xl text-primary font-bold uppercase">
+            Trusted by thousands, <br />
+            <span className="text-third">loved by many!</span>
+          </h2>
+          <div className="flex justify-end">
+            <p>
+              <button className="secondary-btn ">
+                See all FAQS <FaArrowCircleRight />
+              </button>
+            </p>
+          </div>
+        </div>
+
+        <div className="relative">
+          <Swiper
+          autoplay={{
+            delay:2000
+          }}
+          loop={true}
+          modules={[Autoplay]}
+          >
+            <SwiperSlide>
+              <Testimonial/>
+            </SwiperSlide>
+            <SwiperSlide>
+              <Testimonial/>
+            </SwiperSlide>
+            <SwiperSlide>
+              <Testimonial/>
+            </SwiperSlide>
+            <SwiperSlide>
+              <Testimonial/>
+            </SwiperSlide>
+          </Swiper>
+        </div>
+      </div>
+      {/*  */}
+      <div className="bg-third px-10 md:px-40 py-10">
+        <p className="text-lg font-bold text-secondary uppercase pb-4">
+          | Faqs
+        </p>
+        <div className="grid md:grid-cols-2 pb-10 ">
+          <h2 className="text-5xl text-primary font-bold uppercase">
+            Health supplement <br />
+            <span className="text-secondary">
+              questions answered! view all FAQ's
+            </span>
+          </h2>
+          <div className="flex justify-end py-2">
+            <p>
+              <button className="main-btn ">
+                See all FAQS <FaArrowCircleRight />
+              </button>
+            </p>
+          </div>
+        </div>
+
+        <div className="grid md:grid-cols-2">
+          <FAQ />
+          <img src="/product-and-cover.png" alt="" className="mx-auto" />
+        </div>
+      </div>
+      {/*  */}
     </div>
   );
 }
