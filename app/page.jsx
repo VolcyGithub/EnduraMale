@@ -53,7 +53,7 @@ export default function Home() {
               </p>
             </div>
             <div className="pt-2">
-              <div className="bg-white p-4 rounded-lg flex text-xl font-bold gap-3 text-secondary pr-40 custom-break:pr-0">
+              <div className="bg-white p-4 rounded-lg flex text-xl font-bold gap-3 text-secondary custom-break:pr-0">
                 <img
                   src="/icon-about-body.svg"
                   className="bg-secondary p-4 rounded-[50%] "
@@ -69,15 +69,6 @@ export default function Home() {
               <button className="main-btn ">
                 More About us <FaArrowCircleRight />
               </button>
-            </p>
-            <p className="flex font-medium gap-2 text-primary">
-              <img
-                src="/icon-phone.svg"
-                alt=""
-                className="bg-secondary p-3 rounded-[50%]"
-              />
-              Support Any Time <br />
-              +01 - 985 852 357
             </p>
           </div>
         </div>

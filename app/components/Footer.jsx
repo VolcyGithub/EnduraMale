@@ -1,5 +1,5 @@
 'use client'
-import { FaFacebook, FaInstagram, FaTwitter, FaEnvelope, FaPhone, FaMapMarkerAlt } from "react-icons/fa";
+import { FaFacebook, FaInstagram, FaTiktok, FaEnvelope, FaPhone, FaMapMarkerAlt } from "react-icons/fa";
 import { useState } from 'react';
 
 export default function Footer() {
@@ -17,7 +17,7 @@ export default function Footer() {
   return (
     <footer className="bg-secondary text-third">
       {/* Main Footer Content */}
-      <div className="max-w-7xl bg-gradient-to-b from-transparent to-black px-6 sm:px-8 lg:px-12 py-16">
+      <div className="bg-gradient-to-b from-transparent to-black px-6 sm:px-8 lg:px-12 py-8">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
           
           {/* Brand Column */}
@@ -39,7 +39,7 @@ export default function Footer() {
               <div className="space-y-3 text-sm text-third/70">
                 <div className="flex items-center gap-3">
                   <FaPhone className="text-third" />
-                  <span>1-800-ENDURA-1</span>
+                  <span>+1 (386) 957-2121</span>
                 </div>
                 <div className="flex items-center gap-3">
                   <FaEnvelope className="text-third" />
@@ -54,7 +54,7 @@ export default function Footer() {
           </div>
 
           {/* Quick Links */}
-          <div>
+          <div className="hidden md:block">
             <h3 className="text-xl font-bold mb-6 text-third relative">
               Quick Links
               <div className="absolute -bottom-2 left-0 w-12 h-1 bg-third rounded-full"></div>
@@ -137,11 +137,11 @@ export default function Footer() {
                     placeholder="Enter your email address"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
-                    className="flex-1 px-4 py-3 rounded-lg bg-primary border border-primary text-third placeholder-third/60 focus:outline-none focus:ring-2 focus:ring-third focus:border-transparent transition-all duration-300"
+                    className="flex-1 px-4 py-3 rounded-lg bg-primary border border-none text-third placeholder-third/60 focus:outline-none focus:ring-0 focus:ring-third focus:border-nonetransition-all duration-300"
                   />
                   <button 
                     onClick={handleNewsletterSubmit}
-                    className="bg-primary hover:bg-primary/80 text-third px-6 py-3 rounded-lg font-semibold transition-all duration-300 transform hover:scale-105 active:scale-95 shadow-lg hover:shadow-xl border border-third/20"
+                    className="bg-primary hover:bg-primary/80 text-third px-6 py-3 rounded-lg font-semibold transition-all duration-300 transform hover:scale-105 active:scale-95 shadow-lg hover:shadow-xl border border-third/0"
                   >
                     Subscribe
                   </button>
@@ -153,7 +153,7 @@ export default function Footer() {
       </div>
 
       {/* Bottom Bar */}
-      <div className="bg-primary border-t border-gray-200/10">
+      <div className="bg-black">
         <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 py-6">
           <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
             <p className="text-third/80 text-sm">
@@ -164,7 +164,7 @@ export default function Footer() {
               {[
                 { icon: FaFacebook, label: "Facebook", color: "hover:text-third" },
                 { icon: FaInstagram, label: "Instagram", color: "hover:text-third" },
-                { icon: FaTwitter, label: "Twitter", color: "hover:text-third" }
+                { icon: FaTiktok, label: "Twitter", color: "hover:text-third" }
               ].map(({ icon: Icon, label, color }) => (
                 <a 
                   key={label}
