@@ -8,7 +8,6 @@ import {
   FaChevronRight,
 } from "react-icons/fa";
 import { useRef } from "react";
-import Marquee from "react-fast-marquee";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Autoplay } from "swiper/modules";
 import "swiper/css";
@@ -16,68 +15,26 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 import FAQ from "./components/Faqs";
 import Testimonial from "./components/Testimonial";
+import HeroSection from "./components/HeroSection";
+import TitleText from "./components/TitleText";
+
 export default function Home() {
   return (
-    <div>
-      <div className=" h-screen bg-primary overflow-hidden relative">
-        <div className="overlay z-[2]">
-          <div className="grid md:grid-cols-2 items-center h-full py-40 px-10 xl:px-40">
-            <div>
-              {" "}
-              <p className="text-white text-3xl py-5">Welcome</p>
-              <p className="text-7xl xl:text-8xl text-white font-bold">
-                NATURAL <span className="text-secondary">SUPPLEMENT</span>
-              </p>
-              <div className="pt-4 space-y-3">
-                <p className="text-white text-lg flex items-center gap-2">
-                  <FaCheckCircle className="text-secondary" /> Natural
-                  supplements crafted to help you thrive.
-                </p>
-                <p className="text-white text-lg flex items-center gap-2">
-                  <FaCheckCircle className="text-secondary" /> Natural
-                  supplements crafted to help you thrive.
-                </p>
-              </div>
-            </div>
-            <div className="relative">
-              <div className="custom-radius z-[1]"></div>
-              <img
-              src="/featured.png"
-              className="w-[500px] h-[500px] sm:w-[550px] relative z-[2] sm:h-[550px] xl:w-[640px] xl:h-[640px] object-cover"
-              alt=""
-            />
-            </div>
-            
-          </div>
-        </div>
-        <Marquee
-          speed={150}
-          className="absolute h-[90px] bg-secondary text-white uppercase z-[2] top-[90.5%] text-4xl font-bold"
-        >
-          <span>
-            Free Delivery * 100% Secure Payment * 30 Days free Returns *&nbsp;{" "}
-          </span>
-          <span>
-            Free Delivery * 100% Secure Payment * 30 Days free Returns *&nbsp;{" "}
-          </span>
-          <span>
-            Free Delivery * 100% Secure Payment * 30 Days free Returns *&nbsp;{" "}
-          </span>
-        </Marquee>
-      </div>
-      {/* ABOUT SECTION */}
+    <div className="w-full overflow-hidden bg-third">
+      <HeroSection />
 
-      <div className="bg-third xl:h-[700px] py-10 px-10 min-[1200px]:px-20 xl:px-40 grid md:grid-cols-2 relative z-[2]">
-        <img src="/prostate.png" className="m-auto md:w-[270px]" alt="" />
+      <div className="mb-8 bg-third xl:h-[700px] py-10 px-10 min-[1200px]:px-20 xl:px-40 grid md:grid-cols-2 relative z-[2]">
+        <img src="/Enduramale-Black-men.png" className="m-auto md:w-[370px]" alt="" />
 
         <div className="py-10">
           <p className="text-lg font-bold py-2 text-secondary uppercase">
             | About Us
           </p>
-          <h2 className="text-5xl font-bold text-primary uppercase leading-[1.2em]">
-            Committed to your
-            <span className="text-secondary"> health and wellness!</span>
-          </h2>
+          <TitleText
+            firstText="Committed to your"
+            highlightedText="health and wellness!"
+          />
+
           <p className="py-4 font-medium text-gray-500 text-lg">
             We are dedicated to preserving the planet's natural beauty while
             practices ensure a thriving future for generations to come.
@@ -133,10 +90,10 @@ export default function Home() {
           | Why Choose Us
         </p>
         <div className="grid sm:grid-cols-2">
-          <h2 className="text-5xl text-primary font-bold uppercase">
-            Why we're your best
-            <span className="text-secondary"> health choice!</span>
-          </h2>
+          <TitleText
+            firstText="Why we're your"
+            highlightedText="best health choice!"
+          />
           <p className="text-gray-500 text-lg py-2 md:py-0">
             We prioritize quality, using only natural, science - ingredients to
             create effective supplements that support your health, energy, and
@@ -218,10 +175,10 @@ export default function Home() {
           | Our Products
         </p>
         <div className="grid md:grid-cols-2 pb-10">
-          <h2 className="text-5xl text-primary font-bold uppercase">
-            Powerful supplements
-            <span className="text-secondary"> for a healthier you!</span>
-          </h2>
+          <TitleText
+            firstText="Powerfull supplements"
+            highlightedText="for a healthier you!"
+          />
           <div className="flex justify-end py-2">
             <p>
               <button className="main-btn ">
@@ -233,7 +190,7 @@ export default function Home() {
         <div className="relative">
           <Swiper
             modules={[Navigation, Autoplay]}
-            autoplay={{ delay: 3000 }}
+            autoplay={{ delay: 5000 }}
             spaceBetween={20}
             loop={true}
             pagination={{ clickable: true }}
@@ -288,10 +245,10 @@ export default function Home() {
           | Testimonials
         </p>
         <div className="grid md:grid-cols-2 pb-10 ">
-          <h2 className="text-5xl text-primary font-bold uppercase">
-            Trusted by thousands, <br />
-            <span className="text-third">loved by many!</span>
-          </h2>
+          <TitleText
+            firstText="trusted by thousand"
+            highlightedText="loved by many!"
+          />
           <div className="flex justify-end">
             <p>
               <button className="secondary-btn ">
@@ -335,12 +292,10 @@ export default function Home() {
           | Faqs
         </p>
         <div className="grid md:grid-cols-2 pb-10 ">
-          <h2 className="text-5xl text-primary font-bold uppercase">
-            Health supplement <br />
-            <span className="text-secondary">
-              questions answered! view all FAQ's
-            </span>
-          </h2>
+           <TitleText
+            firstText="Health supplement"
+            highlightedText="questions answered! view all FAQ's"
+          />
           <div className="flex justify-end py-2">
             <p>
               <button className="main-btn ">
