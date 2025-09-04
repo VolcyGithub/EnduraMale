@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import { FaSearch, FaFilter, FaList, FaStar, FaHeart, FaShoppingCart } from 'react-icons/fa';
 import { BsImage } from 'react-icons/bs';
 import { AiOutlineHeart, AiFillHeart } from 'react-icons/ai';
-
+import { products, categories } from '../api/products';
 const CatalogPage = () => {
   const [viewMode, setViewMode] = useState('grid');
   const [sortBy, setSortBy] = useState('featured');
@@ -12,120 +12,11 @@ const CatalogPage = () => {
   const [searchQuery, setSearchQuery] = useState('');
   const [wishlist, setWishlist] = useState(new Set());
 
-  const categories = [
-    'All Products',
-    'Testosterone Boosters',
-    'Pre-Workout',
-    'Protein Supplements',
-    'Fat Burners',
-    'Multivitamins',
-    'Recovery & Sleep',
-    'Muscle Builders'
-  ];
-
-  const products = [
-    {
-      id: 1,
-      name: 'TestoMax Pro',
-      category: 'Testosterone Boosters',
-      price: 59.99,
-      originalPrice: 79.99,
-      rating: 4.8,
-      reviews: 324,
-      badge: 'Best Seller',
-      description: 'Natural testosterone booster with D-Aspartic acid and Zinc',
-      inStock: true
-    },
-    {
-      id: 2,
-      name: 'Alpha Pump Pre-Workout',
-      category: 'Pre-Workout',
-      price: 39.99,
-      originalPrice: 49.99,
-      rating: 4.6,
-      reviews: 187,
-      badge: 'New',
-      description: 'High-stimulant pre-workout for intense training sessions',
-      inStock: true
-    },
-    {
-      id: 3,
-      name: 'Whey Protein Isolate',
-      category: 'Protein Supplements',
-      price: 69.99,
-      originalPrice: null,
-      rating: 4.9,
-      reviews: 542,
-      badge: null,
-      description: '25g pure whey protein per serving, fast absorption',
-      inStock: true
-    },
-    {
-      id: 4,
-      name: 'Fat Burn Extreme',
-      category: 'Fat Burners',
-      price: 44.99,
-      originalPrice: 59.99,
-      rating: 4.3,
-      reviews: 156,
-      badge: 'Sale',
-      description: 'Thermogenic fat burner with green tea extract',
-      inStock: false
-    },
-    {
-      id: 5,
-      name: 'Men\'s Daily Multi',
-      category: 'Multivitamins',
-      price: 29.99,
-      originalPrice: null,
-      rating: 4.7,
-      reviews: 289,
-      badge: null,
-      description: 'Complete multivitamin formula designed for active men',
-      inStock: true
-    },
-    {
-      id: 6,
-      name: 'Sleep & Recovery',
-      category: 'Recovery & Sleep',
-      price: 34.99,
-      originalPrice: 44.99,
-      rating: 4.5,
-      reviews: 203,
-      badge: null,
-      description: 'Promotes deep sleep and muscle recovery',
-      inStock: true
-    },
-    {
-      id: 7,
-      name: 'Creatine Monohydrate',
-      category: 'Muscle Builders',
-      price: 24.99,
-      originalPrice: null,
-      rating: 4.8,
-      reviews: 412,
-      badge: 'Top Rated',
-      description: 'Pure creatine monohydrate for strength and power',
-      inStock: true
-    },
-    {
-      id: 8,
-      name: 'Nitric Oxide Booster',
-      category: 'Pre-Workout',
-      price: 49.99,
-      originalPrice: 64.99,
-      rating: 4.4,
-      reviews: 178,
-      badge: null,
-      description: 'Enhances blood flow and muscle pumps',
-      inStock: true
-    }
-  ];
 
   const toggleWishlist = (productId) => {
     const newWishlist = new Set(wishlist);
     if (newWishlist.has(productId)) {
-      newWishlist.delete(productId);
+      newWishlist.delete(productId); 
     } else {
       newWishlist.add(productId);
     }
@@ -248,7 +139,10 @@ const CatalogPage = () => {
               ? 'grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6' 
               : 'space-y-4'
             }>
-              {products.map((product) => (
+              {products.map((product) =>{
+                const hasImage = product.image? true : false;
+                return (
+                
                 <div
                   key={product.id}
                   className={`bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow ${
@@ -258,8 +152,8 @@ const CatalogPage = () => {
                   {/* Product Image */}
                   <div className={`relative ${
                     viewMode === 'list' ? 'w-24 h-24 flex-shrink-0 mr-4' : 'aspect-square'
-                  } bg-gray-200 flex items-center justify-center`}>
-                    <BsImage size={viewMode === 'list' ? 24 : 48} className="text-gray-400" />
+                  } ${hasImage?'':'bg-gray-200'} flex items-center justify-center`} style={hasImage?{ background: `url(${product.image})`, backgroundPosition:'center',backgroundSize:'contain',backgroundRepeat:"no-repeat"}:{}}>
+                    {hasImage ?? <BsImage size={viewMode === 'list' ? 24 : 48} className="text-gray-400" />}
                     
                     {/* Badge */}
                     {product.badge && (
@@ -335,7 +229,7 @@ const CatalogPage = () => {
                     </div>
                   </div>
                 </div>
-              ))}
+              )})}
             </div>
 
             {/* Pagination */}
