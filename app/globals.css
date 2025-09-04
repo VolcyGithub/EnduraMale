@@ -17,9 +17,116 @@
   --color-third: var(--third);
   --breakpoint-custom-break:1100px;
 }
+@keyframes expand {
+  from {
+    width: 0;
+    height: 0;
+  }
+  to {
+    width: 1200px;
+    height: 1200px;
+  }
+}
+
+.expand-animation {
+  animation: expand 1s ease-out forwards;
+}
 .custom-radius {
   border-radius: 69% 25% 50% 28% / 58% 25% 65% 25%;
-  @apply bg-secondary w-[1200px] h-[1200px] absolute top-0 left-0 ; 
+  @apply w-[1200px] h-[1200px] absolute top-0 left-0;
+  /* Make the container transparent */
+  background: transparent;
+  /* Optional: Add a border to see the shape outline */
+  /* Keep position: absolute as in your original code */
+  overflow: hidden; /* Important: clips the filling animation */
+}
+
+.custom-radius::before {
+  content: '';
+  @apply bg-secondary;
+  border-radius: inherit; /* Inherits the same custom radius */
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  
+  /* Filling animation - starts from bottom */
+  transform: translateY(100%);
+  animation: fillUp 1s ease-in-out forwards;
+}
+
+/* Alternative: Fill from left to right */
+.custom-radius.fill-horizontal::before {
+  transform: translateX(-100%);
+  animation: fillRight 3s ease-in-out forwards;
+}
+
+/* Alternative: Scale from center */
+.custom-radius.fill-scale::before {
+  transform: scale(0);
+  animation: fillScale 3s ease-in-out forwards;
+}
+
+@keyframes fillUp {
+  from {
+    transform: translateY(100%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+@keyframes fillRight {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+@keyframes fillScale {
+  from {
+    transform: scale(0);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+@keyframe fadeIn{
+
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+/* Optional: Add animation delay */
+.custom-radius.delayed::before {
+  animation-delay: 1s;
+}
+
+/* Optional: Infinite pulse effect */
+.custom-radius.pulse::before {
+  animation: fillUp 2s ease-in-out infinite alternate;
+}
+
+.three-product-fade-in {
+  animation: fadeIn 2s ease-in linear;
+}
+.featured-product{
+  transition: all 0.75s;
+}
+.featured-product.preEnter,
+.featured-product.exiting {
+  opacity: 0;
+  transform: scale(0.5);
+}
+
+.featured-product.exited {
+  display: none;
 }
 /* 
 

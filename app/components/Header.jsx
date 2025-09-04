@@ -58,7 +58,7 @@ export default function Header() {
 
   return (
     <>
-      <div className="sticky z-[3] top-0 h-[80px] w-full bg-black">
+      <div className="sticky z-[3] top-0 h-[80px] w-full  bg-black/90">
         <div className="grid justify-between items-center w-full grid-cols-2 lg:grid-cols-3 h-full px-6 md:px-10 xl:px-20">
           {/* Logo */}
           <div className="w-full flex relative right-5 items-center h-full">
@@ -71,7 +71,7 @@ export default function Header() {
           </div>
           
           {/* Desktop Navigation */}
-          <ul className="text-[#f1f1f1] hidden lg:flex flex items-center font-medium text-lg justify-between">
+          <ul className="text-[#f1f1f1] hidden lg:flex flex items-center font-medium text-lg justify-between  xl:gap-7 xl:justify-end ">
             <li>
               <Link href="/" className="hover:text-white transition-colors">Home</Link>
             </li>

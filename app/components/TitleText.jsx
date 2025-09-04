@@ -1,11 +1,15 @@
 import React from 'react'
+import { Slide } from 'react-awesome-reveal'
 
-const TitleText = ({ firstText, highlightedText }) => {
+const TitleText = ({ firstText, highlightedText,variant=0 }) => {
+
   return (
-    <span className="text-5xl font-bold text-primary uppercase leading-[1.2em]">
+    <Slide direction='up'>
+      <span className="text-5xl font-bold text-primary uppercase leading-[1.2em]">
       {firstText}{" "}
-      <span className="text-secondary">{highlightedText}</span>
+      <span className={variant?"text-third":"text-secondary"}>{highlightedText}</span>
     </span>
+    </Slide>
   )
 }
 

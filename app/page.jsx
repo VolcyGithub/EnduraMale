@@ -17,7 +17,8 @@ import FAQ from "./components/Faqs";
 import Testimonial from "./components/Testimonial";
 import HeroSection from "./components/HeroSection";
 import TitleText from "./components/TitleText";
-
+import { Zoom } from "react-awesome-reveal";
+import { products } from "./api/products";
 export default function Home() {
   return (
     <div className="w-full overflow-hidden bg-third">
@@ -41,26 +42,31 @@ export default function Home() {
           </p>
           <div className="grid custom-break:grid-cols-2 py-5 items-center">
             <div className="space-y-3  font-medium text-lg text-gray-500">
+              <Zoom>
               <p className="flex items-center gap-2">
                 {" "}
                 <FaCheckCircle className="text-secondary" />
                 Pure & Natural Ingredients
               </p>
+             
               <p className="flex items-center gap-2">
                 {" "}
                 <FaCheckCircle className="text-secondary" />
                 Pure & Natural Ingredients
-              </p>
+              </p> </Zoom>
             </div>
             <div className="pt-2">
-              <div className="bg-white p-4 rounded-lg flex text-xl font-bold gap-3 text-secondary custom-break:pr-0">
+             <Zoom delay={300}>
+             <div className="bg-white p-4 rounded-lg flex text-xl font-bold gap-3 text-secondary custom-break:pr-0">
                 <img
                   src="/icon-about-body.svg"
                   className="bg-secondary p-4 rounded-[50%] "
                   alt=""
                 />
-                100% Natural Ingredients
+                <p className=" lg:px-2">100% Natural Ingredients</p>
+                
               </div>
+             </Zoom>
             </div>
           </div>
 
@@ -191,22 +197,22 @@ export default function Home() {
             }}
             className="mySwiper p-3"
           >
-            {Array(5)
-              .fill(0)
-              .map((_, i) => (
+            {products.filter(product => product.image).length > 0 && products
+              .filter(product => product.image)
+              .map((product, i) => (
                 <SwiperSlide key={i}>
                   <div className="product-card">
                     <img
-                      src="/multivitamin.png"
+                      src={product.image}
                       className="rounded-xl w-[250px]"
                       alt="Vital Boost"
                     />
                     <p className="text-secondary capitalize py-2 font-medium">
-                      Vital Boost
+                     {product.name}
                     </p>
                     <div className="flex justify-between w-full">
                       <span className="flex items-center gap-1">
-                        {Array(5)
+                        {Array(Math.round(product.rating))
                           .fill(0)
                           .map((_, index) => (
                             <FaStar key={index} className="text-secondary" />
@@ -239,6 +245,7 @@ export default function Home() {
           <TitleText
             firstText="trusted by thousand"
             highlightedText="loved by many!"
+            variant={1}
           />
           <div className="flex justify-end">
             <p>
