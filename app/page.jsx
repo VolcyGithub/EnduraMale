@@ -6,6 +6,12 @@ import {
   FaStar,
   FaChevronLeft,
   FaChevronRight,
+  FaAward,
+  FaUsers,
+  FaFlask,
+  FaHeart,
+  FaShieldAlt,
+  FaLeaf
 } from "react-icons/fa";
 import { useRef } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -25,7 +31,11 @@ export default function Home() {
       <HeroSection />
 
       <div className="mb-8 bg-third xl:h-[700px] py-10 px-10 min-[1200px]:px-20 xl:px-40 grid md:grid-cols-2 relative z-[2]">
-        <img src="/Enduramale-Black-men.png" className="m-auto md:w-[370px]" alt="" />
+        <img
+          src="/Enduramale-Black-men.png"
+          className="m-auto md:w-[370px]"
+          alt=""
+        />
 
         <div className="py-10">
           <p className="text-lg font-bold py-2 text-secondary uppercase">
@@ -43,30 +53,29 @@ export default function Home() {
           <div className="grid custom-break:grid-cols-2 py-5 items-center">
             <div className="space-y-3  font-medium text-lg text-gray-500">
               <Zoom>
-              <p className="flex items-center gap-2">
-                {" "}
-                <FaCheckCircle className="text-secondary" />
-                Pure & Natural Ingredients
-              </p>
-             
-              <p className="flex items-center gap-2">
-                {" "}
-                <FaCheckCircle className="text-secondary" />
-                Pure & Natural Ingredients
-              </p> </Zoom>
+                <p className="flex items-center gap-2">
+                  {" "}
+                  <FaCheckCircle className="text-secondary" />
+                  Pure & Natural Ingredients
+                </p>
+                <p className="flex items-center gap-2">
+                  {" "}
+                  <FaCheckCircle className="text-secondary" />
+                  Pure & Natural Ingredients
+                </p>{" "}
+              </Zoom>
             </div>
             <div className="pt-2">
-             <Zoom delay={300}>
-             <div className="bg-white p-4 rounded-lg flex text-xl font-bold gap-3 text-secondary custom-break:pr-0">
-                <img
-                  src="/icon-about-body.svg"
-                  className="bg-secondary p-4 rounded-[50%] "
-                  alt=""
-                />
-                <p className=" lg:px-2">100% Natural Ingredients</p>
-                
-              </div>
-             </Zoom>
+              <Zoom delay={300}>
+                <div className="bg-white p-4 rounded-lg flex text-xl font-bold gap-3 text-secondary custom-break:pr-0">
+                  <img
+                    src="/icon-about-body.svg"
+                    className="bg-secondary p-4 rounded-[50%] "
+                    alt=""
+                  />
+                  <p className=" lg:px-2">100% Natural Ingredients</p>
+                </div>
+              </Zoom>
             </div>
           </div>
 
@@ -102,22 +111,21 @@ export default function Home() {
         <div className="grid md:grid-cols-7 justify-between pt-20 custom-break:px-20">
           <div className="col-span-2">
             <div className="bg-white p-3 mx-auto rounded-[50%] w-[150px] h-[150px] flex items-center justify-center">
-              <img src="/icon-why-choose-1.png" className="w-[100px]" alt="" />
+              <FaHeart className="text-secondary text-[80px]" />
             </div>
             <div className="py-4 text-center">
               <h2 className="text-xl font-semibold text-secondary mb-3">
-                Natural Ingredients
+                Health First
               </h2>
               <p className="text-gray-600 text-lg">
-                Our supplements are made with , natural ingredients, carefully
-                for quality, effectiveness.
+                We prioritize your health and wellness above all else, ensuring every product meets the highest quality standards.
               </p>
             </div>
           </div>
           <div className="col-span-3"></div>
           <div className="col-span-2">
             <div className="bg-white p-3 mx-auto rounded-[50%] w-[150px] h-[150px] flex items-center justify-center">
-              <img src="/icon-why-choose-1.png" className="w-[100px]" alt="" />
+              <FaLeaf className="text-secondary text-[80px]" />
             </div>
             <div className="py-4 text-center">
               <h2 className="text-xl font-semibold text-secondary mb-3">
@@ -136,30 +144,28 @@ export default function Home() {
         <div className="grid md:grid-cols-7 justify-between pt-20 custom-break:px-20 relative md:-top-70">
           <div className="col-span-2">
             <div className="bg-white p-3 mx-auto rounded-[50%] w-[150px] h-[150px] flex items-center justify-center">
-              <img src="/icon-why-choose-1.png" className="w-[100px]" alt="" />
+              <FaShieldAlt className="text-secondary text-[80px]" />
             </div>
             <div className="py-4 text-center">
               <h2 className="text-xl font-semibold text-secondary mb-3">
-                Natural Ingredients
+                Safety & Purity
               </h2>
               <p className="text-gray-600 text-lg">
-                Our supplements are made with , natural ingredients, carefully
-                for quality, effectiveness.
+                All our supplements are rigorously tested for purity, potency, and safety by third-party laboratories.
               </p>
             </div>
           </div>
           <div className="col-span-3"></div>
           <div className="col-span-2">
             <div className="bg-white p-3 mx-auto rounded-[50%] w-[150px] h-[150px] flex items-center justify-center">
-              <img src="/icon-why-choose-1.png" className="w-[100px]" alt="" />
+              <FaFlask className="text-secondary text-[80px]" />
             </div>
             <div className="py-4 text-center">
               <h2 className="text-xl font-semibold text-secondary mb-3">
-                Natural Ingredients
+                Science Backed
               </h2>
               <p className="text-gray-600 text-lg">
-                Our supplements are made with , natural ingredients, carefully
-                for quality, effectiveness.
+                Our formulations are based on scientific research to ensure maximum effectiveness and health benefits.
               </p>
             </div>
           </div>
@@ -197,32 +203,33 @@ export default function Home() {
             }}
             className="mySwiper p-3"
           >
-            {products.filter(product => product.image).length > 0 && products
-              .filter(product => product.image)
-              .map((product, i) => (
-                <SwiperSlide key={i}>
-                  <div className="product-card">
-                    <img
-                      src={product.image}
-                      className="rounded-xl w-[250px]"
-                      alt="Vital Boost"
-                    />
-                    <p className="text-secondary capitalize py-2 font-medium">
-                     {product.name}
-                    </p>
-                    <div className="flex justify-between w-full">
-                      <span className="flex items-center gap-1">
-                        {Array(Math.round(product.rating))
-                          .fill(0)
-                          .map((_, index) => (
-                            <FaStar key={index} className="text-secondary" />
-                          ))}
-                      </span>
-                      <span className="text-primary text-lg">$80</span>
+            {products.filter((product) => product.image).length > 0 &&
+              products
+                .filter((product) => product.image)
+                .map((product, i) => (
+                  <SwiperSlide key={i}>
+                    <div className="product-card">
+                      <img
+                        src={product.image}
+                        className="rounded-xl w-[250px]"
+                        alt="Vital Boost"
+                      />
+                      <p className="text-secondary capitalize py-2 font-medium">
+                        {product.name}
+                      </p>
+                      <div className="flex justify-between w-full">
+                        <span className="flex items-center gap-1">
+                          {Array(Math.round(product.rating))
+                            .fill(0)
+                            .map((_, index) => (
+                              <FaStar key={index} className="text-secondary" />
+                            ))}
+                        </span>
+                        <span className="text-primary text-lg">$80</span>
+                      </div>
                     </div>
-                  </div>
-                </SwiperSlide>
-              ))}
+                  </SwiperSlide>
+                ))}
           </Swiper>
 
           {/* Custom Prev Button */}
@@ -290,7 +297,7 @@ export default function Home() {
           | Faqs
         </p>
         <div className="grid md:grid-cols-2 pb-10 ">
-           <TitleText
+          <TitleText
             firstText="Health supplement"
             highlightedText="questions answered! view all FAQ's"
           />

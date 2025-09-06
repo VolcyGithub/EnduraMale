@@ -1,22 +1,28 @@
-"use client"
-import React, { useState } from 'react';
-import { FaSearch, FaFilter, FaList, FaStar, FaHeart, FaShoppingCart } from 'react-icons/fa';
-import { BsImage } from 'react-icons/bs';
-import { AiOutlineHeart, AiFillHeart } from 'react-icons/ai';
-import { products, categories } from '../api/products';
+"use client";
+import React, { useState } from "react";
+import {
+  FaSearch,
+  FaFilter,
+  FaList,
+  FaStar,
+  FaHeart,
+  FaShoppingCart,
+} from "react-icons/fa";
+import { BsImage } from "react-icons/bs";
+import { AiOutlineHeart, AiFillHeart } from "react-icons/ai";
+import { products, categories } from "../api/products";
 const CatalogPage = () => {
-  const [viewMode, setViewMode] = useState('grid');
-  const [sortBy, setSortBy] = useState('featured');
+  const [viewMode, setViewMode] = useState("grid");
+  const [sortBy, setSortBy] = useState("featured");
   const [priceRange, setPriceRange] = useState([0, 200]);
-  const [selectedCategory, setSelectedCategory] = useState('all');
-  const [searchQuery, setSearchQuery] = useState('');
+  const [selectedCategory, setSelectedCategory] = useState("all");
+  const [searchQuery, setSearchQuery] = useState("");
   const [wishlist, setWishlist] = useState(new Set());
-
 
   const toggleWishlist = (productId) => {
     const newWishlist = new Set(wishlist);
     if (newWishlist.has(productId)) {
-      newWishlist.delete(productId); 
+      newWishlist.delete(productId);
     } else {
       newWishlist.add(productId);
     }
@@ -25,17 +31,21 @@ const CatalogPage = () => {
 
   const getBadgeColor = (badge) => {
     switch (badge) {
-      case 'Best Seller': return 'bg-yellow-500';
-      case 'New': return 'bg-green-500';
-      case 'Sale': return 'bg-red-500';
-      case 'Top Rated': return 'bg-blue-500';
-      default: return 'bg-gray-500';
+      case "Best Seller":
+        return "bg-yellow-500";
+      case "New":
+        return "bg-green-500";
+      case "Sale":
+        return "bg-red-500";
+      case "Top Rated":
+        return "bg-blue-500";
+      default:
+        return "bg-gray-500";
     }
   };
 
   return (
-    <div className="min-h-screen" style={{ backgroundColor: '#F2F2F2' }}>
-     
+    <div className="min-h-screen" style={{ backgroundColor: "#F2F2F2" }}>
       <div className="max-w-7xl mx-auto px-6 py-8">
         <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
           {/* Sidebar Filters
@@ -119,12 +129,12 @@ const CatalogPage = () => {
             {/* Sort and Results Info */}
             <div className="flex items-center justify-between mb-6">
               <p className="text-gray-600">Showing {products.length} results</p>
-              
+
               <select
                 value={sortBy}
                 onChange={(e) => setSortBy(e.target.value)}
                 className="px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2"
-                style={{ focusRingColor: '#51A696' }}
+                style={{ focusRingColor: "#51A696" }}
               >
                 <option value="featured">Featured</option>
                 <option value="price-low">Price: Low to High</option>
@@ -135,129 +145,182 @@ const CatalogPage = () => {
             </div>
 
             {/* Products */}
-            <div className={viewMode === 'grid' 
-              ? 'grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6' 
-              : 'space-y-4'
-            }>
-              {products.map((product) =>{
-                const hasImage = product.image? true : false;
+            <div
+              className={
+                viewMode === "grid"
+                  ? "grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6"
+                  : "space-y-4"
+              }
+            >
+              {products.map((product) => {
+                const hasImage = product.image ? true : false;
                 return (
-                
-                <div
-                  key={product.id}
-                  className={`bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow ${
-                    viewMode === 'list' ? 'flex items-center p-4' : 'overflow-hidden'
-                  }`}
-                >
-                  {/* Product Image */}
-                  <div className={`relative ${
-                    viewMode === 'list' ? 'w-24 h-24 flex-shrink-0 mr-4' : 'aspect-square'
-                  } ${hasImage?'':'bg-gray-200'} flex items-center justify-center`} style={hasImage?{ background: `url(${product.image})`, backgroundPosition:'center',backgroundSize:'contain',backgroundRepeat:"no-repeat"}:{}}>
-                    {hasImage ?? <BsImage size={viewMode === 'list' ? 24 : 48} className="text-gray-400" />}
-                    
-                    {/* Badge */}
-                    {product.badge && (
-                      <span className={`absolute top-2 left-2 px-2 py-1 text-xs font-medium text-white rounded ${getBadgeColor(product.badge)}`}>
-                        {product.badge}
-                      </span>
-                    )}
-                    
-                    {/* Wishlist Button */}
-                    <button
-                      onClick={() => toggleWishlist(product.id)}
-                      className="absolute top-2 right-2 p-2 bg-white rounded-full shadow-sm hover:shadow-md transition-shadow"
+                  <div
+                    key={product.id}
+                    className={`bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow ${
+                      viewMode === "list"
+                        ? "flex items-center p-4"
+                        : "overflow-hidden"
+                    }`}
+                  >
+                    {/* Product Image */}
+                    <div
+                      className={`relative ${
+                        viewMode === "list"
+                          ? "w-24 h-24 flex-shrink-0 mr-4"
+                          : "aspect-square"
+                      } ${
+                        hasImage ? "" : "bg-gray-200"
+                      } flex items-center justify-center`}
+                      style={
+                        hasImage
+                          ? {
+                              background: `url(${product.image})`,
+                              backgroundPosition: "center",
+                              backgroundSize: "contain",
+                              backgroundRepeat: "no-repeat",
+                            }
+                          : {}
+                      }
                     >
-                      {wishlist.has(product.id) ? (
-                        <AiFillHeart className="text-red-500" size={16} />
-                      ) : (
-                        <AiOutlineHeart className="text-gray-400" size={16} />
+                      {hasImage ?? (
+                        <BsImage
+                          size={viewMode === "list" ? 24 : 48}
+                          className="text-gray-400"
+                        />
                       )}
-                    </button>
-                  </div>
 
-                  {/* Product Info */}
-                  <div className={viewMode === 'list' ? 'flex-1' : 'p-4'}>
-                    <div className={viewMode === 'list' ? 'flex items-center justify-between' : ''}>
-                      <div className={viewMode === 'list' ? 'flex-1' : ''}>
-                        <h3 className="font-semibold text-gray-800 mb-2">{product.name}</h3>
-                        <p className="text-sm text-gray-600 mb-3">{product.description}</p>
-                        
-                        {/* Rating */}
-                        <div className="flex items-center mb-3">
-                          <div className="flex text-yellow-400 mr-2">
-                            {[...Array(5)].map((_, i) => (
-                              <FaStar 
-                                key={i} 
-                                className={i < Math.floor(product.rating) ? 'text-yellow-400' : 'text-gray-300'} 
-                                size={12} 
-                              />
-                            ))}
-                          </div>
-                          <span className="text-sm text-gray-600">({product.reviews})</span>
-                        </div>
-
-                        {/* Price */}
-                        <div className="flex items-center mb-4">
-                          <span className="text-xl font-bold" style={{ color: '#262526' }}>
-                            ${product.price}
-                          </span>
-                          {product.originalPrice && (
-                            <span className="text-sm text-gray-500 line-through ml-2">
-                              ${product.originalPrice}
-                            </span>
-                          )}
-                        </div>
-                      </div>
-
-                      {/* Action Buttons */}
-                      <div className={viewMode === 'list' ? 'ml-4' : ''}>
-                        <button
-                          disabled={!product.inStock}
-                          className={`w-full flex items-center justify-center px-4 py-2 rounded-lg font-medium transition-colors ${
-                            product.inStock
-                              ? 'text-white hover:opacity-90'
-                              : 'bg-gray-300 text-gray-500 cursor-not-allowed'
-                          }`}
-                          style={{ 
-                            backgroundColor: product.inStock ? '#51A696' : undefined 
-                          }}
+                      {/* Badge */}
+                      {product.badge && (
+                        <span
+                          className={`absolute top-2 left-2 px-2 py-1 text-xs font-medium text-white rounded ${getBadgeColor(
+                            product.badge
+                          )}`}
                         >
-                          <FaShoppingCart className="mr-2" size={14} />
-                          {product.inStock ? 'Add to Cart' : 'Out of Stock'}
-                        </button>
+                          {product.badge}
+                        </span>
+                      )}
+
+                      {/* Wishlist Button */}
+                      <button
+                        onClick={() => toggleWishlist(product.id)}
+                        className="absolute top-2 right-2 p-2 bg-white rounded-full shadow-sm hover:shadow-md transition-shadow"
+                      >
+                        {wishlist.has(product.id) ? (
+                          <AiFillHeart className="text-red-500" size={16} />
+                        ) : (
+                          <AiOutlineHeart className="text-gray-400" size={16} />
+                        )}
+                      </button>
+                    </div>
+
+                    {/* Product Info */}
+                    <div className={viewMode === "list" ? "flex-1" : "p-4"}>
+                      <div
+                        className={
+                          viewMode === "list"
+                            ? "flex items-center justify-between"
+                            : ""
+                        }
+                      >
+                        <div className={viewMode === "list" ? "flex-1" : ""}>
+                          <h3 className="font-semibold text-gray-800 mb-2">
+                            {product.name}
+                          </h3>
+                          <p className="text-sm text-gray-600 mb-3">
+                            {product.description}
+                          </p>
+
+                          {/* Rating */}
+                          <div className="flex items-center mb-3">
+                            <div className="flex text-yellow-400 mr-2">
+                              {[...Array(5)].map((_, i) => (
+                                <FaStar
+                                  key={i}
+                                  className={
+                                    i < Math.floor(product.rating)
+                                      ? "text-yellow-400"
+                                      : "text-gray-300"
+                                  }
+                                  size={12}
+                                />
+                              ))}
+                            </div>
+                            <span className="text-sm text-gray-600">
+                              ({product.reviews})
+                            </span>
+                          </div>
+
+                          {/* Price */}
+                          <div className="flex items-center mb-4">
+                            <span
+                              className="text-xl font-bold"
+                              style={{ color: "#262526" }}
+                            >
+                              ${product.price}
+                            </span>
+                            {product.originalPrice && (
+                              <span className="text-sm text-gray-500 line-through ml-2">
+                                ${product.originalPrice}
+                              </span>
+                            )}
+                          </div>
+                        </div>
+
+                        {/* Action Buttons */}
+                        <div className={viewMode === "list" ? "ml-4" : ""}>
+                          <button
+                            disabled={!product.inStock}
+                            className={`w-full flex items-center justify-center px-4 py-2 rounded-lg font-medium transition-colors ${
+                              product.inStock
+                                ? "text-white hover:opacity-90"
+                                : "bg-gray-300 text-gray-500 cursor-not-allowed"
+                            }`}
+                            style={{
+                              backgroundColor: product.inStock
+                                ? "#51A696"
+                                : undefined,
+                            }}
+                          >
+                            <FaShoppingCart className="mr-2" size={14} />
+                            {product.inStock ? "Add to Cart" : "Out of Stock"}
+                          </button>
+                        </div>
                       </div>
                     </div>
                   </div>
-                </div>
-              )})}
+                );
+              })}
             </div>
 
             {/* Pagination */}
-            <div className="flex items-center justify-center mt-12">
+            {/* <div className="flex items-center justify-center mt-12">
               <div className="flex items-center space-x-2">
                 <button className="px-3 py-2 border border-gray-300 rounded-lg text-gray-600 hover:bg-gray-50">
                   Previous
                 </button>
-                
+
                 {[1, 2, 3, 4, 5].map((page) => (
                   <button
                     key={page}
                     className={`px-3 py-2 rounded-lg ${
-                      page === 1 
-                        ? 'text-white' 
-                        : 'border border-gray-300 text-gray-600 hover:bg-gray-50'
+                      page === 1
+                        ? "text-white"
+                        : "border border-gray-300 text-gray-600 hover:bg-gray-50"
                     }`}
-                    style={{ backgroundColor: page === 1 ? '#51A696' : undefined }}
+                    style={{
+                      backgroundColor: page === 1 ? "#51A696" : undefined,
+                    }}
                   >
                     {page}
                   </button>
                 ))}
-                
+
                 <button className="px-3 py-2 border border-gray-300 rounded-lg text-gray-600 hover:bg-gray-50">
                   Next
                 </button>
               </div>
-            </div>
+            </div> */}
           </div>
         </div>
       </div>
