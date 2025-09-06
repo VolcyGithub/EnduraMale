@@ -42,7 +42,7 @@ const HeroSection = () => {
       </div>
       <Marquee
         speed={50}
-        className="absolute h-[60px] bg-secondary text-white uppercase z-[2] sm:top-[93%] text-1xl md:text-2xl font-bold"
+        className="absolute h-[60px] bg-secondary text-white uppercase z-[2] top-[93%] text-1xl md:text-2xl font-bold"
       >
         <span>Free Delivery * 100% Secure Payment * Easy Refound *&nbsp; </span>
         <span>Free Delivery * 100% Secure Payment * Easy Refound *&nbsp; </span>
