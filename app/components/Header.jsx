@@ -1,24 +1,10 @@
 "use client";
-import React, { useState, useEffect } from "react";
-import {
-  FaArrowCircleRight,
-  FaArrowRight,
-  FaShoppingCart,
-  FaBars,
-  FaBell,
-  FaTimes,
-  FaHome,
-  FaBox,
-  FaInfoCircle,
-  FaEnvelope,
-  FaUser,
-  FaCog,
-  FaSignOutAlt,
-} from "react-icons/fa";
+import React, { useState, useEffect } from 'react';
+import { FaArrowCircleRight, FaArrowRight, FaBars, FaBell, FaTimes, FaHome, FaBox, FaInfoCircle, FaEnvelope, FaUser, FaCog, FaSignOutAlt } from "react-icons/fa";
 
-// Mock Link component for demo (replace with your actual React Router Link)
-const Link = ({ to, children, className, ...props }) => (
-  <a href={to} className={className} {...props}>
+// Mock Link component for demo (replace with your actual Next.js Link)
+const Link = ({ href, children, className, ...props }) => (
+  <a href={href} className={className} {...props}>
     {children}
   </a>
 );
@@ -29,31 +15,27 @@ export default function Header() {
   // Optional: Close sidebar when clicking outside (you can remove this if you only want toggle behavior)
   useEffect(() => {
     const handleClickOutside = (event) => {
-      if (
-        isSidebarOpen &&
-        !event.target.closest(".sidebar") &&
-        !event.target.closest(".menu-button")
-      ) {
+      if (isSidebarOpen && !event.target.closest('.sidebar') && !event.target.closest('.menu-button')) {
         setIsSidebarOpen(false);
       }
     };
 
-    document.addEventListener("mousedown", handleClickOutside);
+    document.addEventListener('mousedown', handleClickOutside);
     return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
+      document.removeEventListener('mousedown', handleClickOutside);
     };
   }, [isSidebarOpen]);
 
   // Prevent body scroll when sidebar is open
   useEffect(() => {
     if (isSidebarOpen) {
-      document.body.style.overflow = "hidden";
+      document.body.style.overflow = 'hidden';
     } else {
-      document.body.style.overflow = "unset";
+      document.body.style.overflow = 'unset';
     }
 
     return () => {
-      document.body.style.overflow = "unset";
+      document.body.style.overflow = 'unset';
     };
   }, [isSidebarOpen]);
 
@@ -61,71 +43,57 @@ export default function Header() {
     setIsSidebarOpen(!isSidebarOpen);
   };
 
+ 
+
   const menuItems = [
-    { to: "/", label: "Home", icon: FaHome },
-    { to: "/catalog", label: "Catalog", icon: FaBox },
-    { to: "/about", label: "About Us", icon: FaInfoCircle },
-    { to: "/contact", label: "Contact Us", icon: FaEnvelope },
+    { href: "/", label: "Home", icon: FaHome },
+    { href: "/product", label: "Catalog", icon: FaBox },
+    { href: "/about", label: "About Us", icon: FaInfoCircle },
+    { href: "/contact", label: "Contact Us", icon: FaEnvelope },
   ];
 
-  const userMenuItems = [{ to: "/orders", label: "My Orders", icon: FaBox }];
+  const userMenuItems = [
+    { href: "/orders", label: "My Orders", icon: FaBox },
+  ];
 
   return (
     <>
       <div className="sticky z-[3] top-0 h-[80px] w-full  bg-black/90">
         <div className="grid justify-between items-center w-full grid-cols-2 lg:grid-cols-3 h-full px-6 md:px-10 xl:px-20">
           {/* Logo */}
-          <Link to="/">
-            <div className="w-full flex relative right-5 items-center h-full">
-              <img
-                src="/ENDURAMALE-WHITE.png"
-                alt=""
-                className="h-[50px] w-[50px] lg:h-[70px] lg:w-[70px]"
-              />
-              <span className="text-white text-md lg:text-2xl font-bold">
-                ENDURAMALE
-              </span>
-            </div>
-          </Link>
-
+          <div className="w-full flex relative right-5 items-center h-full">
+            <img
+              src="/ENDURAMALE-WHITE.png"
+              alt=""
+              className="h-[50px] w-[50px] lg:h-[70px] lg:w-[70px]"
+            />
+            <span className="text-white text-md lg:text-2xl font-bold">ENDURAMALE</span>
+          </div>
+          
           {/* Desktop Navigation */}
           <ul className="text-[#f1f1f1] hidden lg:flex flex items-center font-medium text-lg justify-between  xl:gap-7 xl:justify-end ">
             <li>
-              <Link to="/" className="hover:text-white transition-colors">
-                Home
-              </Link>
+              <Link href="/" className="hover:text-white transition-colors">Home</Link>
             </li>
             <li>
-              <Link
-                to="/catalog"
-                className="hover:text-white transition-colors"
-              >
-                Catalog
-              </Link>
+              <Link href="/product" className="hover:text-white transition-colors">Catalog</Link>
             </li>
             <li>
-              <Link to="/about" className="hover:text-white transition-colors">
-                About Us
-              </Link>
+              <Link href="/about" className="hover:text-white transition-colors">About Us</Link>
             </li>
             <li>
-              <Link
-                to="/contact"
-                className="hover:text-white transition-colors"
-              >
-                Contact Us
-              </Link>
+              <Link href="/contact" className="hover:text-white transition-colors">Contact Us</Link>
             </li>
           </ul>
 
           {/* Desktop Right Side */}
           <div className="items-center w-full hidden justify-end lg:flex">
-            <FaShoppingCart className="text-white cursor-pointer hover:text-gray-300 transition-colors mr-4" />
+            <FaBell className="text-white cursor-pointer hover:text-gray-300 transition-colors" />
           </div>
 
           {/* Mobile Menu Button */}
-          <div className="items-center gap-4 justify-end flex lg:hidden">
-            <FaShoppingCart className="text-white cursor-pointer hover:text-gray-300 transition-colors" />
+          <div className="grid items-center justify-end block lg:hidden">
+            {/* <Cart className="text-white cursor-pointer hover:text-gray-300 transition-colors mr-4" /> */}
             <button
               onClick={toggleSidebar}
               className="menu-button text-white hover:text-gray-300 transition-colors p-2"
@@ -139,27 +107,27 @@ export default function Header() {
 
       {/* Mobile Sidebar Overlay */}
       {isSidebarOpen && (
-        <div className="fixed inset-0 bg-black/50 z-[9998] lg:hidden" />
+        <div 
+          className="fixed inset-0 bg-black/50 z-[9998] lg:hidden"
+        />
       )}
 
       {/* Mobile Sidebar */}
       <div
         className={`sidebar fixed top-0 left-0 h-full w-80 bg-white z-[9999] transform transition-transform duration-300 ease-in-out lg:hidden ${
-          isSidebarOpen ? "translate-x-0" : "-translate-x-full"
+          isSidebarOpen ? 'translate-x-0' : '-translate-x-full'
         }`}
       >
         {/* Sidebar Header */}
         <div className="flex items-center justify-between p-5 border-b border-gray-200 bg-black">
-          <Link to="/">
-            <div className="flex items-center">
-              <img
-                src="/ENDURAMALE-WHITE.png"
-                alt=""
-                className="h-[40px] w-[40px] mr-3"
-              />
-              <span className="text-white text-lg font-bold">ENDURAMALE</span>
-            </div>
-          </Link>
+          <div className="flex items-center">
+            <img
+              src="/ENDURAMALE-WHITE.png"
+              alt=""
+              className="h-[40px] w-[40px] mr-3"
+            />
+            <span className="text-white text-lg font-bold">ENDURAMALE</span>
+          </div>
         </div>
 
         {/* Navigation Menu */}
@@ -172,9 +140,9 @@ export default function Header() {
               {menuItems.map((item) => {
                 const Icon = item.icon;
                 return (
-                  <li key={item.to}>
+                  <li key={item.href}>
                     <Link
-                      to={item.to}
+                      href={item.href}
                       className="flex items-center px-4 py-3 text-gray-700 rounded-lg hover:bg-gray-100 hover:text-black transition-colors"
                     >
                       <Icon className="mr-3 text-gray-500" size={18} />
@@ -195,9 +163,9 @@ export default function Header() {
               {userMenuItems.map((item) => {
                 const Icon = item.icon;
                 return (
-                  <li key={item.to}>
+                  <li key={item.href}>
                     <Link
-                      to={item.to}
+                      href={item.href}
                       className="flex items-center px-4 py-3 text-gray-700 rounded-lg hover:bg-gray-100 hover:text-black transition-colors"
                     >
                       <Icon className="mr-3 text-gray-500" size={18} />
@@ -214,9 +182,7 @@ export default function Header() {
             <button className="flex items-center w-full px-4 py-3 text-gray-700 rounded-lg hover:bg-gray-100 hover:text-black transition-colors">
               <FaBell className="mr-3 text-gray-500" size={18} />
               <span className="font-medium">Notifications</span>
-              <span className="ml-auto bg-red-500 text-white text-xs rounded-full px-2 py-1">
-                3
-              </span>
+              <span className="ml-auto bg-red-500 text-white text-xs rounded-full px-2 py-1">3</span>
             </button>
           </div>
         </nav>
