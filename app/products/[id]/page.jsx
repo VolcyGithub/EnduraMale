@@ -9,12 +9,16 @@ import {
 } from "react-icons/fa";
 import { AiOutlineHeart } from "react-icons/ai";
 import { BsImage } from "react-icons/bs";
+import { useParams } from "next/navigation";
+import { products } from "@/app/api/products";
 
-const ProductPage = () => {
+const ProductPage = (params) => {
   const [selectedColor, setSelectedColor] = useState("Turquoise");
   const [activeTab, setActiveTab] = useState("Description");
   const [quantity, setQuantity] = useState(1);
-
+  const {id} = useParams(params.id);
+  const [product] = products.filter((prod) => prod.id == id);
+  
   const colors = ["Turquoise", "Gold", "Silver", "Rose Gold"];
 
   const relatedProducts = [
@@ -48,6 +52,7 @@ const ProductPage = () => {
       image: null,
     },
   ];
+  const hasImage = product.image ?true:false;
 
   const incrementQuantity = () => setQuantity((prev) => prev + 1);
   const decrementQuantity = () =>
@@ -71,8 +76,27 @@ const ProductPage = () => {
           {/* Images Section */}
           <div className="space-y-4">
             {/* Main Image */}
-            <div className="aspect-square bg-gray-300 rounded-lg flex items-center justify-center">
-              <BsImage size={80} className="text-gray-500" />
+            <div
+              className={`aspect-square rounded-lg ${
+                hasImage ? "" : "bg-gray-200"
+              } flex items-center justify-center`}
+              style={
+                hasImage
+                  ? {
+                      background: `url(${product.image})`,
+                      backgroundPosition: "center",
+                      backgroundSize: "contain",
+                      backgroundRepeat: "no-repeat",
+                    }
+                  : {}
+              }
+            >
+              {hasImage ?? (
+                <BsImage
+                  size={viewMode === "list" ? 24 : 48}
+                  className="text-gray-400"
+                />
+              )}
             </div>
 
             {/* Thumbnail Images */}
@@ -80,9 +104,27 @@ const ProductPage = () => {
               {[1, 2, 3, 4].map((i) => (
                 <div
                   key={i}
-                  className="aspect-square bg-gray-300 rounded-lg flex items-center justify-center cursor-pointer"
+                  className={`aspect-square bg-gray-300 shadow-md rounded-lg ${
+                    !hasImage ? "" : "bg-gray-200"
+                  } flex items-center justify-center`}
+                  style={
+                    hasImage
+                      ? {
+                          background: `url(${product.image})`,
+                          backgroundPosition: "center",
+                          backgroundSize: "contain",
+                          backgroundRepeat: "no-repeat",
+                          
+                        }
+                      : {}
+                  }
                 >
-                  <BsImage size={24} className="text-gray-500" />
+                  {!hasImage && (
+                    <BsImage
+                      size={viewMode === "list" ? 24 : 48}
+                      className="text-gray-400"
+                    />
+                  )}
                 </div>
               ))}
             </div>
@@ -93,15 +135,15 @@ const ProductPage = () => {
             <div>
               <p className="text-sm text-gray-600 mb-2">SUPPLEMENT</p>
               <h1 className="text-3xl font-light text-gray-800 mb-4">
-                Horny Goat
+                {product.name}
               </h1>
 
               {/* Rating */}
               <div className="flex items-center mb-4">
                 <div className="flex text-yellow-400">
-                  {[1, 2, 3, 4, 5].map((star) => (
+                  {Array(Math.round(product.rating)).fill(0).map((star,index) => (
                     <span
-                      key={star}
+                      key={index}
                       className={
                         star <= 4 ? "text-yellow-400" : "text-gray-300"
                       }

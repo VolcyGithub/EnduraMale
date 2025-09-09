@@ -1,6 +1,6 @@
 "use client";
 import React, { useState, useEffect } from 'react';
-import { FaArrowCircleRight, FaArrowRight, FaBars, FaBell, FaTimes, FaHome, FaBox, FaInfoCircle, FaEnvelope, FaUser, FaCog, FaSignOutAlt } from "react-icons/fa";
+import { FaArrowCircleRight, FaArrowRight, FaBars, FaBell, FaTimes, FaHome, FaBox, FaInfoCircle, FaEnvelope, FaUser, FaCog, FaSignOutAlt, FaCartArrowDown, FaCartPlus } from "react-icons/fa";
 
 // Mock Link component for demo (replace with your actual Next.js Link)
 const Link = ({ href, children, className, ...props }) => (
@@ -88,7 +88,7 @@ export default function Header() {
 
           {/* Desktop Right Side */}
           <div className="items-center w-full hidden justify-end lg:flex">
-            <FaBell className="text-white cursor-pointer hover:text-gray-300 transition-colors" />
+          <Link href={'/cart'}>  <FaCartPlus className="text-white cursor-pointer hover:text-gray-300 transition-colors text-xl" /></Link>
           </div>
 
           {/* Mobile Menu Button */}
