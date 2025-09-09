@@ -47,7 +47,7 @@ export default function Header() {
 
   const menuItems = [
     { href: "/", label: "Home", icon: FaHome },
-    { href: "/catalog", label: "Catalog", icon: FaBox },
+    { href: "/product", label: "Catalog", icon: FaBox },
     { href: "/about", label: "About Us", icon: FaInfoCircle },
     { href: "/contact", label: "Contact Us", icon: FaEnvelope },
   ];
@@ -76,7 +76,7 @@ export default function Header() {
               <Link href="/" className="hover:text-white transition-colors">Home</Link>
             </li>
             <li>
-              <Link href="/catalog" className="hover:text-white transition-colors">Catalog</Link>
+              <Link href="/product" className="hover:text-white transition-colors">Catalog</Link>
             </li>
             <li>
               <Link href="/about" className="hover:text-white transition-colors">About Us</Link>

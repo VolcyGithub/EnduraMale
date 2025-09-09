@@ -32,11 +32,11 @@ const HeroSection = () => {
           </div>
           <div className="relative">
             <div className="custom-radius z-[1]"></div>
-            <JackInTheBox direction="up" className="relative z-[2]"><img
+            <img
               src="/featured.png"
               className={`w-[400px] lg:w-[600px] relative z-[2] featured-product  object-cover`}
               alt=""
-            /></JackInTheBox>
+            />
           </div>
         </div>
       </div>
