@@ -155,7 +155,7 @@ export default function Header() {
           </div>
 
           {/* User Menu Section */}
-          <div className="p-4 border-t border-gray-200">
+          {/* <div className="p-4 border-t border-gray-200">
             <h3 className="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-3">
               Account
             </h3>
@@ -175,16 +175,16 @@ export default function Header() {
                 );
               })}
             </ul>
-          </div>
+          </div> */}
 
           {/* Notifications Section */}
-          <div className="p-4 border-t border-gray-200">
+          {/* <div className="p-4 border-t border-gray-200">
             <button className="flex items-center w-full px-4 py-3 text-gray-700 rounded-lg hover:bg-gray-100 hover:text-black transition-colors">
               <FaBell className="mr-3 text-gray-500" size={18} />
               <span className="font-medium">Notifications</span>
               <span className="ml-auto bg-red-500 text-white text-xs rounded-full px-2 py-1">3</span>
             </button>
-          </div>
+          </div> */}
         </nav>
 
         {/* Sidebar Footer */}
