@@ -56,6 +56,35 @@ export default function Header() {
     { href: "/orders", label: "My Orders", icon: FaBox },
   ];
 
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    setTimeout(() => {
+      setIsLoading(false);
+    }, 3000);
+  }, []);
+
+  if (isLoading) {
+    return (
+      <div className="fixed w-full h-screen inset-0 bg-secondary flex items-center justify-center z-50">
+        <img
+          src="/ENDURAMALE-WHITE.png"
+          alt="Loading"
+          className="h-[100px] w-[100px] animate-pulse"
+          style={{
+            animation: 'zoom 2s ease infinite',
+          }}
+        />
+        <style jsx>{`
+          @keyframes zoom {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.2); }
+          }
+        `}</style>
+      </div>
+    );
+  }
+
   return (
     <>
       <div className="sticky z-[3] top-0 h-[80px] w-full  bg-black/90">
