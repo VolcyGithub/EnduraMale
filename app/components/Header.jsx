@@ -47,13 +47,13 @@ export default function Header() {
 
   const menuItems = [
     { href: "/", label: "Home", icon: FaHome },
-    { href: "/product", label: "Catalog", icon: FaBox },
-    { href: "/about", label: "About Us", icon: FaInfoCircle },
-    { href: "/contact", label: "Contact Us", icon: FaEnvelope },
+    { href: "/product/", label: "Catalog", icon: FaBox },
+    { href: "/about/", label: "About Us", icon: FaInfoCircle },
+    { href: "/contact/", label: "Contact Us", icon: FaEnvelope },
   ];
 
   const userMenuItems = [
-    { href: "/orders", label: "My Orders", icon: FaBox },
+    { href: "/orders/", label: "My Orders", icon: FaBox },
   ];
 
   return (
