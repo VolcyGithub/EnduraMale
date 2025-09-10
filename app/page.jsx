@@ -11,11 +11,12 @@ import {
   FaFlask,
   FaHeart,
   FaShieldAlt,
-  FaLeaf
+  FaLeaf,
 } from "react-icons/fa";
 import { useRef } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Autoplay } from "swiper/modules";
+import Link from "next/link";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
@@ -34,21 +35,21 @@ export default function Home() {
         <img
           src="/Enduramale-Black-men.png"
           className="m-auto md:w-[370px]"
-          alt=""
+          alt="Enduramale Black Men Supplement"
         />
 
         <div className="py-10">
           <p className="text-lg font-bold py-2 text-secondary uppercase">
-            | About Us
+            | About Enduramale
           </p>
           <TitleText
-            firstText="Committed to your"
-            highlightedText="health and wellness!"
+            firstText="Unlock your full"
+            highlightedText="masculine potential!"
           />
 
           <p className="py-4 font-medium text-gray-500 text-lg">
-            We are dedicated to preserving the planet's natural beauty while
-            practices ensure a thriving future for generations to come.
+            Enduramale is dedicated to empowering men with superior supplements
+            designed to enhance endurance, virility, and overall male health.
           </p>
           <div className="grid custom-break:grid-cols-2 py-5 items-center">
             <div className="space-y-3  font-medium text-lg text-gray-500">
@@ -56,12 +57,12 @@ export default function Home() {
                 <p className="flex items-center gap-2">
                   {" "}
                   <FaCheckCircle className="text-secondary" />
-                  Pure & Natural Ingredients
+                  Boosts Endurance & Stamina
                 </p>
                 <p className="flex items-center gap-2">
                   {" "}
                   <FaCheckCircle className="text-secondary" />
-                  Pure & Natural Ingredients
+                  Supports Libido & Performance
                 </p>{" "}
               </Zoom>
             </div>
@@ -71,9 +72,9 @@ export default function Home() {
                   <img
                     src="/icon-about-body.svg"
                     className="bg-secondary p-4 rounded-[50%] "
-                    alt=""
+                    alt="100% Natural Ingredients Icon"
                   />
-                  <p className=" lg:px-2">100% Natural Ingredients</p>
+                  <p className=" lg:px-2">Clinically Tested Ingredients</p>
                 </div>
               </Zoom>
             </div>
@@ -82,7 +83,7 @@ export default function Home() {
           <div className="flex flex-row custom-break:pt-20 gap-4 custom-break:gap-20">
             <p>
               <button className="main-btn ">
-                More About us <FaArrowCircleRight />
+                Discover More <FaArrowCircleRight />
               </button>
             </p>
           </div>
@@ -91,102 +92,22 @@ export default function Home() {
 
       {/* Emphazis Section */}
 
-      <div className="bg-secondary/20 h-[min-content] md:h-[1300px] custom-break:h-[1100px] w-full px-10 custom-break:px-40 py-20">
+      <div className="bg-secondary/20 h-[min-content] custom-break:h-[1100px] w-full px-10 custom-break:px-40 py-20">
         <p className="text-lg font-bold text-secondary uppercase pb-4">
-          | Why Choose Us
-        </p>
-        <div className="grid sm:grid-cols-2">
-          <TitleText
-            firstText="Why we're your"
-            highlightedText="best health choice!"
-          />
-          <p className="text-gray-500 text-lg py-2 md:py-0">
-            We prioritize quality, using only natural, science - ingredients to
-            create effective supplements that support your health, energy, and
-            overall well-being.
-          </p>
-        </div>
-
-        {/*  */}
-        <div className="grid md:grid-cols-7 justify-between pt-20 custom-break:px-20">
-          <div className="col-span-2">
-            <div className="bg-white p-3 mx-auto rounded-[50%] w-[150px] h-[150px] flex items-center justify-center">
-              <FaHeart className="text-secondary text-[80px]" />
-            </div>
-            <div className="py-4 text-center">
-              <h2 className="text-xl font-semibold text-secondary mb-3">
-                Health First
-              </h2>
-              <p className="text-gray-600 text-lg">
-                We prioritize your health and wellness above all else, ensuring every product meets the highest quality standards.
-              </p>
-            </div>
-          </div>
-          <div className="col-span-3"></div>
-          <div className="col-span-2">
-            <div className="bg-white p-3 mx-auto rounded-[50%] w-[150px] h-[150px] flex items-center justify-center">
-              <FaLeaf className="text-secondary text-[80px]" />
-            </div>
-            <div className="py-4 text-center">
-              <h2 className="text-xl font-semibold text-secondary mb-3">
-                Natural Ingredients
-              </h2>
-              <p className="text-gray-600 text-lg">
-                Our supplements are made with , natural ingredients, carefully
-                for quality, effectiveness.
-              </p>
-            </div>
-          </div>
-        </div>
-        <div className="relative w-full flex justify-center md:-top-30">
-          <img src="/multivitamin.png" className="w-[250px]" alt="" />
-        </div>
-        <div className="grid md:grid-cols-7 justify-between pt-20 custom-break:px-20 relative md:-top-70">
-          <div className="col-span-2">
-            <div className="bg-white p-3 mx-auto rounded-[50%] w-[150px] h-[150px] flex items-center justify-center">
-              <FaShieldAlt className="text-secondary text-[80px]" />
-            </div>
-            <div className="py-4 text-center">
-              <h2 className="text-xl font-semibold text-secondary mb-3">
-                Safety & Purity
-              </h2>
-              <p className="text-gray-600 text-lg">
-                All our supplements are rigorously tested for purity, potency, and safety by third-party laboratories.
-              </p>
-            </div>
-          </div>
-          <div className="col-span-3"></div>
-          <div className="col-span-2">
-            <div className="bg-white p-3 mx-auto rounded-[50%] w-[150px] h-[150px] flex items-center justify-center">
-              <FaFlask className="text-secondary text-[80px]" />
-            </div>
-            <div className="py-4 text-center">
-              <h2 className="text-xl font-semibold text-secondary mb-3">
-                Science Backed
-              </h2>
-              <p className="text-gray-600 text-lg">
-                Our formulations are based on scientific research to ensure maximum effectiveness and health benefits.
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      {/* Products Section */}
-      <div className="bg-third h-[min-content] py-10 px-10  md:px-40">
-        <p className="text-lg font-bold text-secondary uppercase pb-4">
-          | Our Products
+          | Our Premium Range
         </p>
         <div className="grid md:grid-cols-2 pb-10">
           <TitleText
-            firstText="Powerfull supplements"
-            highlightedText="for a healthier you!"
+            firstText="Targeted solutions for"
+            highlightedText="peak male performance!"
           />
           <div className="flex justify-end py-2">
             <p>
-              <button className="main-btn ">
-                More Products <FaArrowCircleRight />
-              </button>
+              <Link href="/product">
+                <button className="main-btn ">
+                  View All Products <FaArrowCircleRight />
+                </button>
+              </Link>
             </p>
           </div>
         </div>
@@ -208,16 +129,17 @@ export default function Home() {
                 .filter((product) => product.image)
                 .map((product, i) => (
                   <SwiperSlide key={i}>
-                    <div className="product-card">
-                      <img
-                        src={product.image}
-                        className="rounded-xl w-[250px]"
-                        alt="Vital Boost"
-                      />
-                      <p className="text-secondary capitalize py-2 font-medium">
-                        {product.name}
-                      </p>
-                      <div className="flex justify-between w-full">
+                    <Link href="/product">
+                      <div className="product-card">
+                        <img
+                          src={product.image}
+                          className="rounded-xl w-[250px]"
+                          alt="Enduramale Supplements"
+                        />
+                        <p className="text-secondary capitalize py-2 font-medium">
+                          {product.name}
+                        </p>
+                        {/* <div className="flex justify-between w-full">
                         <span className="flex items-center gap-1">
                           {Array(Math.round(product.rating))
                             .fill(0)
@@ -226,38 +148,40 @@ export default function Home() {
                             ))}
                         </span>
                         <span className="text-primary text-lg">$80</span>
+                      </div> */}
                       </div>
-                    </div>
+                    </Link>
                   </SwiperSlide>
                 ))}
           </Swiper>
 
           {/* Custom Prev Button */}
-          <button className="absolute left-0 top-1/2 -translate-y-1/2 bg-black/50 text-white p-3 rounded-r-lg z-10">
+          {/* <button className="absolute left-0 top-1/2 -translate-y-1/2 bg-black/50 text-white p-3 rounded-r-lg z-10">
             <FaChevronLeft />
-          </button>
+          </button> */}
 
           {/* Custom Next Button */}
-          <button className="absolute right-0 top-1/2 -translate-y-1/2 bg-black/50 text-white p-3 rounded-l-lg z-10">
+          {/* <button className="absolute right-0 top-1/2 -translate-y-1/2 bg-black/50 text-white p-3 rounded-l-lg z-10">
             <FaChevronRight />
-          </button>
+          </button> */}
         </div>
       </div>
+
       {/*  */}
       <div className="bg-secondary px-10 md:px-40 py-20">
         <p className="text-lg font-bold text-third uppercase pb-4">
-          | Testimonials
+          | Real Results, Real Men
         </p>
         <div className="grid md:grid-cols-2 pb-10 ">
           <TitleText
-            firstText="trusted by thousand"
-            highlightedText="loved by many!"
+            firstText="Trusted by thousands,"
+            highlightedText="transforming lives!"
             variant={1}
           />
           <div className="flex justify-end">
             <p>
               <button className="secondary-btn ">
-                See all FAQS <FaArrowCircleRight />
+                Read All Reviews <FaArrowCircleRight />
               </button>
             </p>
           </div>
@@ -294,17 +218,17 @@ export default function Home() {
       {/*  */}
       <div className="bg-third px-10 md:px-40 py-10">
         <p className="text-lg font-bold text-secondary uppercase pb-4">
-          | Faqs
+          | Frequently Asked Questions
         </p>
         <div className="grid md:grid-cols-2 pb-10 ">
           <TitleText
-            firstText="Health supplement"
-            highlightedText="questions answered! view all FAQ's"
+            firstText="Your questions about"
+            highlightedText="male enhancement answered!"
           />
           <div className="flex justify-end py-2">
             <p>
               <button className="main-btn ">
-                See all FAQS <FaArrowCircleRight />
+                View All FAQs <FaArrowCircleRight />
               </button>
             </p>
           </div>
@@ -312,7 +236,11 @@ export default function Home() {
 
         <div className="grid md:grid-cols-2">
           <FAQ />
-          <img src="/horny-goat.png" alt="" className="mx-auto w-[250px]" />
+          <img
+            src="/horny-goat.png"
+            alt="Horny Goat Weed Supplement"
+            className="mx-auto w-[250px]"
+          />
         </div>
       </div>
       {/*  */}

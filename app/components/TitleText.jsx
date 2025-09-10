@@ -5,7 +5,7 @@ const TitleText = ({ firstText, highlightedText,variant=0 }) => {
 
   return (
     <Zoom>
-      <span className="text-5xl font-bold text-primary uppercase leading-[1.2em]">
+      <span className="text-3xl lg:text-5xl font-bold text-primary uppercase leading-[1.2em]">
       {firstText}{" "}
       <span className={variant?"text-third":"text-secondary"}>{highlightedText}</span>
     </span>

@@ -8,7 +8,7 @@ import {
   FaCheckCircle,
   FaStar,
 } from "react-icons/fa";
-
+import Link from "next/link"
 export default function AboutPage() {
   const stats = [
     { number: "50K+", label: "Happy Customers", icon: FaUsers },
@@ -117,7 +117,7 @@ export default function AboutPage() {
             <div className="relative">
               <div className="bg-secondary rounded-2xl p-8 shadow-2xl">
                 <img
-                  src="./public/endura-story.png"
+                  src="/ENDURAMALE-BLACK.png"
                   alt="Our facility"
                   className="w-full h-80 object-cover rounded-lg"
                 />
@@ -191,7 +191,7 @@ export default function AboutPage() {
       </section>
 
       {/* Team Section */}
-      <section className="py-20">
+      {/* <section className="py-20">
         <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-primary mb-6">
@@ -231,7 +231,7 @@ export default function AboutPage() {
             ))}
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* Mission Section */}
       <section className="py-20 bg-secondary text-third">
@@ -254,7 +254,7 @@ export default function AboutPage() {
       {/* CTA Section */}
       <section className="py-20">
         <div className="max-w-4xl mx-auto px-6 sm:px-8 lg:px-12 text-center">
-          <h2 className="text-4xl font-bold text-primary mb-8">
+          <h2 className="text-4xl font-semibold text-primary mb-8">
             Ready to Transform Your Health?
           </h2>
           <p className="text-xl text-primary/80 mb-10">
@@ -262,12 +262,18 @@ export default function AboutPage() {
             wellness journey.
           </p>
           <div className="flex flex-col sm:flex-row gap-6 justify-center">
-            <button className="bg-secondary hover:bg-secondary/90 text-third px-8 py-4 rounded-lg text-lg font-semibold transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl">
+            <Link href="/product">
+             <button className="bg-secondary hover:bg-secondary/90 text-third px-8 py-4 rounded-lg text-lg font-semibold transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl">
               Shop Products
             </button>
+            </Link>
+           
+            <Link href="/contact">
             <button className="bg-primary hover:bg-primary/80 text-third px-8 py-4 rounded-lg text-lg font-semibold transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl border border-secondary">
               Contact Us
             </button>
+            </Link>
+            
           </div>
         </div>
       </section>
