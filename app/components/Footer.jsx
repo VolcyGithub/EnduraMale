@@ -47,7 +47,7 @@ export default function Footer() {
                 </div>
                 <div className="flex items-center gap-3">
                   <FaMapMarkerAlt className="text-third" />
-                  <span>Boston, MA</span>
+                  <span>Palm Coast, FL</span>
                 </div>
               </div>
             </div>
@@ -118,7 +118,7 @@ export default function Footer() {
         </div>
 
         {/* Newsletter Section */}
-        <div className="mt-16 pt-12 border-t border-third/20">
+        {/* <div className="mt-16 pt-12 border-t border-third/20">
           <div className="flex flex-col lg:flex-row items-center justify-between gap-8">
             <div className="text-center lg:text-left">
               <h3 className="text-2xl font-bold text-third mb-2">Stay Updated</h3>
@@ -149,18 +149,16 @@ export default function Footer() {
               )}
             </div>
           </div>
-        </div>
+        </div> */}
       </div>
 
       {/* Bottom Bar */}
-      <div className="bg-black">
+      <div className="bg-black pt-4 border-t border-third/20">
         <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 py-6">
           <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
-            <p className="text-third/80 text-sm">
-              © {new Date().getFullYear()} Enduramale. All rights reserved.
-            </p>
+           
             
-            <div className="flex space-x-6">
+            <div className="flex space-x-6 mb-4">
               {[
                 { icon: FaFacebook, label: "Facebook", color: "hover:text-third" },
                 { icon: FaInstagram, label: "Instagram", color: "hover:text-third" },
@@ -176,6 +174,9 @@ export default function Footer() {
                 </a>
               ))}
             </div>
+             <p className="text-third/80 text-sm">
+              © {new Date().getFullYear()} Enduramale. All rights reserved.
+            </p>
           </div>
         </div>
       </div>

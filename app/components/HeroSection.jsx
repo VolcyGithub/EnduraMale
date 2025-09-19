@@ -1,55 +1,69 @@
-import React, { useEffect } from "react";
-import { FaCheckCircle } from "react-icons/fa";
-import Marquee from "react-fast-marquee";
-import { Fade,Slide,JackInTheBox } from "react-awesome-reveal";
+import Image from "next/image";
+const FeatureItem = ({ text }) => {
+return (
+    <div className="text-gray-500 flex gap-x-3">
+        <span className="w-7 h-7 max-h-7 min-w-[1.75rem] bg-emerald-100 dark:bg-gray-900 dark:text-gray-300 text-emerald-600 rounded-md flex items-center justify-center">
+            ✓
+        </span>
+        {text}
+    </div>
+)
+}
+const features = [
+{
+    id: 1,
+    text: "Boost endurance & stamina"
+},
+{
+    id: 2,
+    text: "Enhance libido"
+},
+{
+    id: 3,
+    text: "Support prostate health"
+},
+{
+    id: 4,
+    text: "Naturally elevate testosterone"
+},
+]
+ 
 
 const HeroSection = () => {
-
-
-  
   return (
-    <div className="h-[850px] bg-primary overflow-hidden relative">
-      <div className="overlay z-[2]">
-        <div className="grid md:grid-cols-2 items-center py-20 xl:py-4 xl:px-10">
-          <div className="px-4">
-            <Slide direction="up">
-            <p className="text-4xl lg:text-7xl xl:text-8xl text-white font-bold">
-              UNLEASH YOUR <span className="text-secondary">POTENTIAL</span>
-            </p>
-            </Slide>
-            <Slide>
-            <div className="pt-4 space-y-3">
-              <p className="text-white text-lg flex items-center gap-2">
-                <FaCheckCircle className="text-secondary" /> Boost Endurance & Stamina for Peak Performance.
-              </p>
-              <p className="text-white text-lg flex items-center gap-2">
-                <FaCheckCircle className="text-secondary" /> Enhance Libido & Support Prostate Health.
-              </p>
-              <p className="text-white text-lg flex items-center gap-2">
-                <FaCheckCircle className="text-secondary" /> Naturally Elevate Testosterone Levels.
-              </p>
-            </div>
-            </Slide>
+    <section className="bg-secondary/20 py-8 mt-20">
+      <div className="mx-auto lg:max-w-7xl w-full px-5 sm:px-10 md:px-12 lg:px-5 flex flex-col lg:flex-row lg:items-stretch gap-x-6">
+        <div className="lg:w-[47%] py-4 lg:py-8 xl:py-12 space-y-7">
+          <h1 className="text-gray-900  font-bold text-5xl sm:text-5xl md:text-5xl xl:text-6xl">
+            Let your <span className="text-secondary">confidence</span> come to
+            you
+          </h1>
+          <p className="text-gray-500">
+            Discover the power of Enduramale, the ultimate supplement designed to help you unlock your full masculine potential. 
+            {/* Boost your endurance, enhance your libido, and support your overall */}
+          </p>
+          
+          <div className="grid grid-cols-2 gap-x-6 sm:gap-x-8 gap-y-4">
+            {features.map((feature) => (
+              <FeatureItem key={feature.id} {...feature} />
+            ))}
           </div>
-          <div className="relative">
-            <div className="custom-radius z-[1]"></div>
-            <img
-              src="/featured.png" // Consider updating this image to a specific Enduramale product for better branding
-              className={`w-[400px] lg:w-[600px] relative z-[2] featured-product  object-cover`}
-              alt="Enduramale Male Enhancement Supplement" // Added descriptive alt text
+        </div>
+        <div className="flex flex-1 relative lg:h-auto">
+          <div className="relative h-max lg:absolute left-0 top-0 flex lg:h-full  lg:w-auto w-11/12">
+            <span className="absolute top-0 left-32 w-3/5 aspect-square rounded-md -rotate-[30deg] translate-y-20 origin-center border border-emerald-200 dark:border-gray-800" />
+            <span className="absolute top-1/2 right-16 w-2/5 aspect-square rounded-md rotate-12 -translate-y-1/2 origin-center border border-emerald-200 dark:border-gray-800" />
+            <Image
+              src="/trilogie-products.png"
+              width={600}
+              height={600}
+              alt="Enduramale Product Range"
+              className=" lg:w-auto lg:h-full relative"
             />
           </div>
         </div>
       </div>
-      <Marquee
-        speed={50}
-        className="absolute h-[60px] bg-secondary text-white uppercase z-[2] top-[93%] text-1xl md:text-2xl font-bold"
-      >
-        <span>Experience Real Results * Maximum Potency Formula * Trusted by Men Worldwide *&nbsp; </span>
-        <span>Experience Real Results * Maximum Potency Formula * Trusted by Men Worldwide *&nbsp; </span>
-        <span>Experience Real Results * Maximum Potency Formula * Trusted by Men Worldwide *&nbsp; </span>
-      </Marquee>
-    </div>
+    </section>
   );
 };
 

@@ -13,4 +13,15 @@ const TitleText = ({ firstText, highlightedText,variant=0 }) => {
   )
 }
 
-export default TitleText
+export default TitleText;
+
+const DarkTitle = ({ firstText, highlightedText,variant=0  }) => (
+  <Zoom>
+      <span className="text-3xl lg:text-5xl font-bold text-white uppercase leading-[1.2em]">
+      {firstText}{" "}
+      <span className={variant?"text-third":"text-secondary"}>{highlightedText}</span>
+    </span>
+    </Zoom>
+);
+
+export {DarkTitle};
