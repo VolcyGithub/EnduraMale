@@ -349,7 +349,7 @@ const ShopifyProductSlider = () => {
     };
     document.head.appendChild(splideJS);
 
-    // Charger les boutons Shopify après un délai pour s'assurer que le DOM est prêt
+    
     setTimeout(loadShopifyScript, 1000);
 
   }, []);
