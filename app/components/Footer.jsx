@@ -1,6 +1,7 @@
 'use client'
 import { FaFacebook, FaInstagram, FaTiktok, FaEnvelope, FaPhone, FaMapMarkerAlt } from "react-icons/fa";
 import { useState } from 'react';
+import Link from "next/link";
 
 export default function Footer() {
   const [email, setEmail] = useState('');
@@ -83,13 +84,13 @@ export default function Footer() {
             <ul className="space-y-3">
               {['Supplements', 'Vitamins', 'Energy Boosters', 'Protein Powders', 'Accessories'].map((product) => (
                 <li key={product}>
-                  <a 
-                    href="#" 
+                  <Link 
+                    href="/catalog/" 
                     className="text-third/80 hover:text-third transition-colors duration-300 flex items-center group"
                   >
                     <span className="w-0 group-hover:w-2 h-px bg-third transition-all duration-300 mr-0 group-hover:mr-3"></span>
                     {product}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -105,7 +106,7 @@ export default function Footer() {
               {['FAQs', 'Shipping & Returns', 'Track Your Order', 'Privacy Policy', 'Terms & Conditions'].map((support) => (
                 <li key={support}>
                   <a 
-                    href="#" 
+                    href="#faqs" 
                     className="text-third/80 hover:text-third transition-colors duration-300 flex items-center group"
                   >
                     <span className="w-0 group-hover:w-2 h-px bg-third transition-all duration-300 mr-0 group-hover:mr-3"></span>

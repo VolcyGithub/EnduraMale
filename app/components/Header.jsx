@@ -1,16 +1,62 @@
 "use client";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image";
+import { useRouter, usePathname } from "next/navigation";
+
 const Navbar = () => {
   const [openNavbar, setOpenNavbar] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const router = useRouter();
+
   const toggleNavbar = () => {
     setOpenNavbar((openNavbar) => !openNavbar);
   };
+
   const closeNavbar = () => {
     setOpenNavbar(false);
   };
+
+  const pathname = usePathname();
+
+  // Gérer l'état de chargement lors des clics sur les liens
+  const handleLinkClick = () => {
+    setLoading(true);
+    closeNavbar();
+  };
+
+  // Réinitialiser le loading quand le pathname change
+  useEffect(() => {
+    setLoading(false);
+  }, [pathname]);
+
+  // Composant Loader
+  const Loader = () => (
+    <div className="fixed top-0 left-0 w-full h-1 bg-gray-200 z-50">
+      <div className="h-full bg-emerald-600 animate-pulse relative overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent animate-shimmer" />
+      </div>
+      <style jsx>{`
+        @keyframes shimmer {
+          0% {
+            transform: translateX(-100%);
+          }
+          100% {
+            transform: translateX(100%);
+          }
+        }
+        .animate-shimmer {
+          animation: shimmer 1.5s infinite;
+        }
+      `}</style>
+    </div>
+  );
+
   return (
     <>
+      {/* Afficher le loader si une page est en cours de chargement */}
+      {loading && <Loader />}
+
       <div
         onClick={() => {
           closeNavbar();
@@ -20,22 +66,28 @@ const Navbar = () => {
           openNavbar ? "flex lg:hidden" : "hidden"
         }`}
       />
-      <header className="fixed left-0 bg-emerald-50 dark:bg-gray-950 top-0 w-full flex items-center h-20 border-b border-b-gray-100 dark:border-b-gray-800 z-40">
+      <header className="fixed left-0 bg-gray-950 top-0 w-full flex items-center h-20  z-40">
         <nav className="relative mx-auto lg:max-w-7xl w-full px-5 sm:px-10 md:px-12 lg:px-5 flex gap-x-5 justify-between items-center">
           <div className="flex items-center min-w-max">
             <Link
               href="/"
-              className="text-xl font-semibold text-gray-800 dark:text-gray-200"
+              className="text-xl flex items-center font-semibold text-third"
             >
-              <span className="relative after:absolute after:inset-0 after:rotate-3 after:border after:border-secondary text-emerald-800 dark:text-white">
-                Endura
+              <img
+                src="/ENDURAMALE-BEIGE.png"
+                width={40}
+                height={40}
+                alt="Enduramale logo"
+              />
+              <span className="relative">
+                ENDURA
               </span>
-              male
+              MALE
             </Link>
           </div>
           <div
             className={`
-                    absolute top-full lg:translate-y-0 lg:opacity-100 left-0 bg-white dark:bg-gray-950 lg:bg-transparent border-b border-gray-200 dark:border-gray-800 py-8 lg:py-0 px-5 sm:px-10 md:px-12 lg:px-0 lg:border-none w-full lg:top-0 lg:relative  lg:flex lg:justify-between duration-300 lg:transition-none ease-linear
+                    absolute top-full lg:translate-y-0 lg:opacity-100 left-0 bg-white lg:bg-transparent border-b border-gray-200 py-8 lg:py-0 px-5 sm:px-10 md:px-12 lg:px-0 lg:border-none w-full lg:top-0 lg:relative  lg:flex lg:justify-between duration-300 lg:transition-none ease-linear
                     ${
                       openNavbar
                         ? "translate-y-0 rotate-0 opacity-100 visible"
@@ -43,10 +95,11 @@ const Navbar = () => {
                     }
                 `}
           >
-            <ul className="flex flex-col lg:flex-row gap-6 lg:items-center text-gray-800 dark:text-gray-200 lg:w-full lg:justify-center">
+            <ul className="flex flex-col lg:flex-row gap-6 lg:items-center text-gray-800  lg:w-full lg:justify-center">
               <li>
                 <Link
                   href="/"
+                  onClick={handleLinkClick}
                   className="relative py-2.5 duration-300 ease-linear hover:text-secondary after:absolute after:w-full after:left-0 after:bottom-0 after:h-px after:rounded-md after:origin-left after:ease-linear after:duration-300 after:scale-x-0 hover:after:scale-100 after:bg-secondary"
                 >
                   Home
@@ -55,6 +108,7 @@ const Navbar = () => {
               <li>
                 <Link
                   href="/catalog"
+                  onClick={handleLinkClick}
                   className="relative py-2.5 duration-300 ease-linear hover:text-secondary after:absolute after:w-full after:left-0 after:bottom-0 after:h-px after:rounded-md after:origin-left after:ease-linear after:duration-300 after:scale-x-0 hover:after:scale-100 after:bg-secondary"
                 >
                   Catalog
@@ -63,18 +117,18 @@ const Navbar = () => {
               <li>
                 <Link
                   href="/about"
+                  onClick={handleLinkClick}
                   className="relative py-2.5 duration-300 ease-linear hover:text-secondary after:absolute after:w-full after:left-0 after:bottom-0 after:h-px after:rounded-md after:origin-left after:ease-linear after:duration-300 after:scale-x-0 hover:after:scale-100 after:bg-secondary"
                 >
                   About us
                 </Link>
               </li>
-              
             </ul>
             <div className="flex flex-col sm:flex-row sm:items-center gap-4  lg:min-w-max mt-10 lg:mt-0">
               <div className="hidden">
                 <a
                   href="#"
-                  className="relative text-gray-800 dark:text-gray-200 px-1.5"
+                  className="relative text-gray-800  px-1.5"
                 >
                   <span className="sr-only">cart</span>
                   <span className="absolute top-0 right-0 bg-secondary w-2 h-2 rounded-full" />
@@ -96,14 +150,9 @@ const Navbar = () => {
                   </svg>
                 </a>
               </div>
-              {/* <a
-                href="#"
-                className="hidden px-5 py-2.5 rounded-md text-secondary dark:text-gray-200 underline flex justify-center"
-              >
-                Signin
-              </a> */}
               <Link
                 href="/contact"
+                onClick={handleLinkClick}
                 className="px-5 py-2.5 rounded-md bg-secondary text-white flex justify-center duration-300 ease-linear hover:bg-emerald-700"
               >
                 Contact Us
@@ -112,29 +161,6 @@ const Navbar = () => {
           </div>
           <div className="flex items-center lg:hidden gap-x-4">
             <div className="flex items-center gap-x-4 lg:hidden">
-              {/* <a
-                href="#"
-                className="relative  text-gray-700 dark:text-gray-300 px-1.5"
-              >
-                <span className="sr-only">cart</span>
-                <span className="absolute top-0 right-0 bg-secondary w-2 h-2 rounded-full" />
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width={20}
-                  height={20}
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  strokeWidth="1.5"
-                  stroke="currentColor"
-                  className="w-6 h-6"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M15.75 10.5V6a3.75 3.75 0 10-7.5 0v4.5m11.356-1.993l1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 01-1.12-1.243l1.264-12A1.125 1.125 0 015.513 7.5h12.974c.576 0 1.059.435 1.119 1.007zM8.625 10.5a.375.375 0 11-.75 0 .375.375 0 01.75 0zm7.5 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z"
-                  />
-                </svg>
-              </a> */}
               <div className="flex">
                 <button
                   onClick={() => {

@@ -31,54 +31,60 @@ export default function ShopPage() {
             product: {
               styles: {
                 product: {
-                  "@media (min-width: 601px)": {
-                    "max-width": "calc(25% - 20px)",
-                    "margin-left": "20px",
-                    "margin-bottom": "50px",
-                    width: "calc(25% - 20px)",
+                  "text-align": "center",
+                  border: "1px solid #e5e7eb",
+                  "border-radius": "1rem",
+                  padding: "1.5rem",
+                  "background-color": "#fff",
+                  transition: "all 0.3s ease",
+                  ":hover": {
+                    transform: "translateY(-4px)",
+                    "box-shadow": "0 8px 24px rgba(0,0,0,0.06)",
                   },
-                  img: {
-                    height: "calc(100% - 15px)",
-                    position: "absolute",
-                    left: "0",
-                    right: "0",
-                    top: "0",
-                  },
-                  imgWrapper: {
-                    "padding-top": "calc(75% + 15px)",
-                    position: "relative",
-                    height: "0",
-                  },
+                },
+                img: {
+                  "border-radius": "0.75rem",
+                  "margin-bottom": "1rem",
+                  transition: "transform 0.3s ease",
                 },
                 title: {
-                  "font-size": "17px",
-                  color: "#1e1e1e",
+                  "font-size": "1.1rem",
+                  "font-weight": "600",
+                  color: "#1f2937",
+                  "margin-bottom": "0.5rem",
+                },
+                price: {
+                  "font-size": "1rem",
+                  color: "#499587",
+                  "font-weight": "600",
                 },
                 button: {
-                  "font-size": "13px",
-                  "padding-top": "14.5px",
-                  "padding-bottom": "14.5px",
+                  "margin-top": "1rem",
+                  "font-size": "0.9rem",
+                  "padding-top": "12px",
+                  "padding-bottom": "12px",
+                  "padding-left": "20px",
+                  "padding-right": "20px",
+                  "border-radius": "9999px",
+                  "background-color": "#499587",
+                  color: "#fff",
+                  "font-weight": "600",
+                  transition: "all 0.3s ease",
                   ":hover": { "background-color": "#499587" },
-                  "background-color": "#51a696",
                   ":focus": { "background-color": "#499587" },
-                  "border-radius": "27px",
-                },
-                quantityInput: {
-                  "font-size": "13px",
-                  "padding-top": "14.5px",
-                  "padding-bottom": "14.5px",
                 },
               },
               buttonDestination: "modal",
               contents: { options: false },
-              text: { button: "View product" },
+              text: { button: "View Product" },
             },
             productSet: {
               styles: {
                 products: {
-                  "@media (min-width: 601px)": {
-                    "margin-left": "-20px",
-                  },
+                  display: "grid",
+                  "grid-template-columns": "repeat(auto-fit, minmax(250px, 1fr))",
+                  gap: "2rem",
+                  "margin-top": "2rem",
                 },
               },
             },
@@ -91,106 +97,58 @@ export default function ShopPage() {
               },
               styles: {
                 product: {
-                  "@media (min-width: 601px)": {
-                    "max-width": "100%",
-                    "margin-left": "0px",
-                    "margin-bottom": "0px",
-                  },
-                },
-                button: {
-                  "font-size": "13px",
-                  "padding-top": "14.5px",
-                  "padding-bottom": "14.5px",
-                  ":hover": { "background-color": "#499587" },
-                  "background-color": "#51a696",
-                  ":focus": { "background-color": "#499587" },
-                  "border-radius": "27px",
-                },
-                quantityInput: {
-                  "font-size": "13px",
-                  "padding-top": "14.5px",
-                  "padding-bottom": "14.5px",
+                  "max-width": "100%",
+                  padding: "2rem",
+                  "text-align": "left",
+                  "background-color": "#fff",
+                  "border-radius": "1rem",
                 },
                 title: {
-                  "font-family": "Helvetica Neue, sans-serif",
-                  "font-weight": "bold",
-                  "font-size": "26px",
-                  color: "#1e1e1e",
+                  "font-size": "1.75rem",
+                  "font-weight": "700",
+                  color: "#111827",
                 },
-                price: { color: "#4e4e4e" },
-                compareAt: { color: "#4e4e4e" },
-                unitPrice: { color: "#4e4e4e" },
-                description: { color: "#535353" },
+                description: {
+                  "font-size": "1rem",
+                  color: "#374151",
+                  "margin-top": "1rem",
+                  "line-height": "1.6",
+                },
+                price: {
+                  color: "#499587",
+                  "font-size": "1.25rem",
+                  "font-weight": "600",
+                  "margin-top": "0.75rem",
+                },
+                button: {
+                  "margin-top": "1.5rem",
+                  "border-radius": "9999px",
+                  "padding": "14px 28px",
+                  "background-color": "#499587",
+                  color: "#fff",
+                  "font-weight": "600",
+                  "font-size": "1rem",
+                  transition: "all 0.3s ease",
+                  ":hover": { "background-color": "#499587" },
+                },
               },
-              text: { button: "Add to cart" },
+              text: { button: "Add to Cart" },
             },
-            modal: { styles: { modal: { "background-color": "#f1f1f1" } } },
-            option: {},
             cart: {
               styles: {
+                cart: { "background-color": "#111827" },
+                footer: { "background-color": "#111827" },
+                title: { color: "#f9fafb" },
+                lineItems: { color: "#f9fafb" },
+                subtotalText: { color: "#f9fafb" },
+                subtotal: { color: "#f9fafb" },
                 button: {
-                  "font-size": "13px",
-                  "padding-top": "14.5px",
-                  "padding-bottom": "14.5px",
+                  "background-color": "#499587",
                   ":hover": { "background-color": "#499587" },
-                  "background-color": "#51a696",
-                  ":focus": { "background-color": "#499587" },
-                  "border-radius": "27px",
+                  "border-radius": "9999px",
                 },
-                title: { color: "#f9f9f9" },
-                header: { color: "#f9f9f9" },
-                lineItems: { color: "#f9f9f9" },
-                subtotalText: { color: "#f9f9f9" },
-                subtotal: { color: "#f9f9f9" },
-                notice: { color: "#f9f9f9" },
-                currency: { color: "#f9f9f9" },
-                close: {
-                  color: "#f9f9f9",
-                  ":hover": { color: "#f9f9f9" },
-                },
-                empty: { color: "#f9f9f9" },
-                noteDescription: { color: "#f9f9f9" },
-                discountText: { color: "#f9f9f9" },
-                discountIcon: { fill: "#f9f9f9" },
-                discountAmount: { color: "#f9f9f9" },
-                cart: { "background-color": "#007862" },
-                footer: { "background-color": "#007862" },
               },
               text: { total: "Subtotal", button: "Checkout" },
-              contents: { note: true },
-            },
-            toggle: {
-              styles: {
-                toggle: {
-                  "background-color": "#51a696",
-                  ":hover": { "background-color": "#499587" },
-                  ":focus": { "background-color": "#499587" },
-                },
-                count: { "font-size": "13px" },
-              },
-            },
-            lineItem: {
-              styles: {
-                variantTitle: { color: "#f9f9f9" },
-                title: { color: "#f9f9f9" },
-                price: { color: "#f9f9f9" },
-                fullPrice: { color: "#f9f9f9" },
-                discount: { color: "#f9f9f9" },
-                discountIcon: { fill: "#f9f9f9" },
-                quantity: { color: "#f9f9f9" },
-                quantityIncrement: {
-                  color: "#f9f9f9",
-                  "border-color": "#f9f9f9",
-                },
-                quantityDecrement: {
-                  color: "#f9f9f9",
-                  "border-color": "#f9f9f9",
-                },
-                quantityInput: {
-                  color: "#f9f9f9",
-                  "border-color": "#f9f9f9",
-                },
-              },
             },
           },
         });
@@ -208,14 +166,28 @@ export default function ShopPage() {
     }
   }, []);
 
-
   return (
-    <main className="min-h-screen bg-gray-50 py-10">
-      <h1 className="text-3xl font-bold text-center mb-8">Our Products</h1>
-      <div
-        id="collection-component-1757452565923"
-        className="container mx-auto p-6"
-      />
+    <main className="min-h-screen bg-gray-50">
+      {/* Hero Section */}
+      <section className="bg-gradient-to-r from-secondary to-teal-500 text-white py-18">
+        <div className="max-w-3xl mx-auto text-center px-6 py-8">
+          <h1 className="text-4xl md:text-5xl font-bold mb-4">
+            Our Products
+          </h1>
+          <p className="text-lg opacity-90">
+            Explore our catalog of premium supplements designed to help you
+            unlock your full masculine potential.
+          </p>
+        </div>
+      </section>
+
+      {/* Products Grid */}
+      <section className="max-w-7xl mx-auto px-6 py-16">
+        <div
+          id="collection-component-1757452565923"
+          className="w-full"
+        />
+      </section>
     </main>
   );
 }

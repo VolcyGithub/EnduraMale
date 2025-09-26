@@ -34,28 +34,30 @@ export default function FAQ() {
   };
 
   return (
-    <section className="max-w-2xl mx-auto py-10">
-      <div className="space-y-3">
+    <section className="max-w-3xl mx-auto py-16 px-6">
+      
+      <div className="space-y-4">
         {faqs.map((faq, index) => (
           <div
             key={index}
-            className="rounded-2xl overflow-hidden bg-white border border-gray-200 transition hover:shadow-md"
+            className="rounded-2xl bg-white/80 backdrop-blur-sm border border-gray-200 shadow-sm hover:shadow-lg transition duration-300"
           >
             <button
               onClick={() => toggleFAQ(index)}
-              className="w-full flex justify-between items-center px-5 py-4 text-left font-semibold text-gray-800 text-lg focus:outline-none"
+              className="w-full flex justify-between items-center px-6 py-5 text-left font-semibold text-gray-800 text-lg"
             >
               <span>{faq.question}</span>
               <FaChevronDown
-                className={`text-gray-500 transition-transform duration-300 ${
-                  openIndex === index ? "rotate-180 text-secondary" : ""
+                className={`transition-transform duration-300 ${
+                  openIndex === index ? "rotate-180 text-secondary" : "text-gray-400"
                 }`}
               />
             </button>
+
             <div
-              className={`transition-all duration-300 ease-in-out ${
+              className={`px-6 transition-all duration-500 ease-in-out ${
                 openIndex === index
-                  ? "max-h-40 opacity-100 px-5 pb-4 text-gray-600"
+                  ? "max-h-40 opacity-100 pb-5 text-gray-600"
                   : "max-h-0 opacity-0 overflow-hidden"
               }`}
             >

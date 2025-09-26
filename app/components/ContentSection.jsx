@@ -15,7 +15,7 @@ const ContentSection = () => {
             className="w-full object-cover rounded-lg"
           />
         </div>
-        <div className="md:w-1/2 lg:w-[54%] space-y-4 text-gray-700 dark:text-gray-300">
+        <div className="md:w-1/2 lg:w-[54%] space-y-4 text-gray-300">
           <p className="text-lg font-bold py-2 text-secondary uppercase">
             | About Enduramale
           </p>
@@ -27,9 +27,9 @@ const ContentSection = () => {
             />
             <div className="flex justify-end pt-8">
               <p>
-                <Link href="/product">
+                <Link href="/about/">
                   <button className="main-btn ">
-                    View All Products <FaArrowCircleRight />
+                   More about us <FaArrowCircleRight />
                   </button>
                 </Link>
               </p>
@@ -39,7 +39,7 @@ const ContentSection = () => {
           <div className="grid sm:grid-cols-2 gap-6">
             <div
               className="mt-4 space-y-6 p-4 rounded relative 
-              dark:bg-gray-950 border border-gray-100 dark:border-gray-900 bg-cover bg-center"
+              bg-gray-950 border border-gray-100 border-gray-900 bg-cover bg-center"
               style={{ backgroundImage: "url('/photo-output.webp')" }}
             >
               {/* Overlay */}
@@ -47,7 +47,7 @@ const ContentSection = () => {
 
               {/* Contenu au-dessus de l’overlay */}
               <div className="relative z-10 space-y-4">
-                <span className="rounded-full bg-gray-900 dark:bg-gray-100 text-gray-100 dark:text-gray-900 w-max p-3 flex">
+                <span className="rounded-full bg-gray-100 text-gray-100 text-gray-900 w-max p-3 flex">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     fill="none"
@@ -63,10 +63,10 @@ const ContentSection = () => {
                     />
                   </svg>
                 </span>
-                <h2 className="font-semibold text-xl text-gray-900 dark:text-white">
+                <h2 className="font-semibold text-xl text-white">
                   Our mission
                 </h2>
-                <p className="text-gray-800 dark:text-gray-200">
+                <p className="text-gray-200">
                   At Enduramale, our mission is to empower you to reclaim your
                   vitality and confidence through premium, science-backed
                   supplements
@@ -75,7 +75,7 @@ const ContentSection = () => {
             </div>
             <div
               className="mt-4 space-y-6 p-4 rounded relative 
-              dark:bg-gray-950 border border-gray-100 dark:border-gray-900 bg-cover bg-center"
+              bg-gray-950 border border-gray-900 bg-cover bg-center"
               style={{ backgroundImage: "url('/photo-output_1.webp')" }}
             >
               {/* Overlay */}
@@ -83,7 +83,7 @@ const ContentSection = () => {
 
               {/* Contenu au-dessus de l’overlay */}
               <div className="relative z-10 space-y-4">
-                <span className="rounded-full bg-gray-900 dark:bg-gray-100 text-gray-100 dark:text-gray-900 w-max p-3 flex">
+                <span className="rounded-full bg-gray-100 text-gray-900 w-max p-3 flex">
                   <svg
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
@@ -104,7 +104,7 @@ const ContentSection = () => {
                   />
                 </svg>
                 </span>
-               <h2 className="font-semibold text-xl text-gray-900 dark:text-white">
+               <h2 className="font-semibold text-xl text-white">
                 Our vision
               </h2>
               <p>To be the leading provider</p>
