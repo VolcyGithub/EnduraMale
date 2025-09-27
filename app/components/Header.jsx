@@ -95,7 +95,7 @@ const Navbar = () => {
                     }
                 `}
           >
-            <ul className="flex flex-col lg:flex-row gap-6 lg:items-center text-gray-800  lg:w-full lg:justify-center">
+            <ul className="flex flex-col lg:flex-row gap-6 lg:items-center text-gray-800 lg:text-white hover:text-secondary lg:w-full lg:justify-center">
               <li>
                 <Link
                   href="/"
